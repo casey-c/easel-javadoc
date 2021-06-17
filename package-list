@@ -1,12 +1,14 @@
 easel
+easel.config
+easel.config.enums
+easel.config.samples
+easel.patches
 easel.ui
 easel.ui.containers
 easel.ui.debug
 easel.ui.graphics
 easel.ui.graphics.ninepatch
-easel.ui.graphics.ninepatch.headered
 easel.ui.graphics.pie
-easel.ui.interactive
 easel.ui.layouts
 easel.ui.misc
 easel.ui.text

@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -119,7 +119,7 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public class <span class="typeNameLabel">PieChartWidget</span>
 extends <a href="../../../../easel/ui/graphics/ShaderWidget.html" title="class in easel.ui.graphics">ShaderWidget</a>&lt;<a href="../../../../easel/ui/graphics/pie/PieChartWidget.html" title="class in easel.ui.graphics.pie">PieChartWidget</a>&gt;</pre>
-<div class="block">Not intended for use (yet?). This class needs a LOT of generifying. Currently only allows 4 regions (hardcoded), and isn't ready for production. Will need to spend a lot more effort into tweaking the GLSL and Java code to make it useable beyond this. For now, consider this deprecated as it may be removed or changed entirely at any time.</div>
+<div class="block">Renders a circular pie chart using shaders given dynamically specified regions. There are two distinct ways to build the chart: in bulk, using the <a href="../../../../easel/ui/graphics/pie/PieChartWidget.html#withCounts-int...-"><code>withCounts(int...)</code></a> and <a href="../../../../easel/ui/graphics/pie/PieChartWidget.html#withColors-com.badlogic.gdx.graphics.Color...-"><code>withColors(Color...)</code></a> methods, or region by region with repeated applications of <a href="../../../../easel/ui/graphics/pie/PieChartWidget.html#withRegion-int-com.badlogic.gdx.graphics.Color-"><code>withRegion(int, Color)</code></a>. The order the regions are rendered in the pie chart (counter-clockwise starting at the top right) is determined by the order they are inserted into this widget. You can update the count or color of a particular region if you know the index at which it was entered into the chart. When constructing the pie chart using the bulk methods, make sure you have the same number of colors as region counts (otherwise it is undefined behavior).</div>
 </li>
 </ul>
 </div>
@@ -161,7 +161,9 @@ extends <a href="../../../../easel/ui/graphics/ShaderWidget.html" title="class i
 </tr>
 <tr class="altColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../../easel/ui/graphics/pie/PieChartWidget.html#PieChartWidget-float-float-">PieChartWidget</a></span>(float&nbsp;width,
-              float&nbsp;height)</code>&nbsp;</td>
+              float&nbsp;height)</code>
+<div class="block">Constructs a new pie-chart that will render with the given width or height.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -179,16 +181,47 @@ extends <a href="../../../../easel/ui/graphics/ShaderWidget.html" title="class i
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code><a href="../../../../easel/ui/graphics/pie/PieChartWidget.html" title="class in easel.ui.graphics.pie">PieChartWidget</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../easel/ui/graphics/pie/PieChartWidget.html#clear--">clear</a></span>()</code>
+<div class="block">Clears out all previously stored region sizes and colors.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../easel/ui/graphics/pie/PieChartWidget.html#setUniforms--">setUniforms</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i1" class="rowColor">
-<td class="colFirst"><code><a href="../../../../easel/ui/graphics/pie/PieChartWidget.html" title="class in easel.ui.graphics.pie">PieChartWidget</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../easel/ui/graphics/pie/PieChartWidget.html#withColors-com.badlogic.gdx.graphics.Color...-">withColors</a></span>(com.badlogic.gdx.graphics.Color...&nbsp;colors)</code>&nbsp;</td>
-</tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../easel/ui/graphics/pie/PieChartWidget.html#updateRegionColor-int-com.badlogic.gdx.graphics.Color-">updateRegionColor</a></span>(int&nbsp;index,
+                 com.badlogic.gdx.graphics.Color&nbsp;color)</code>
+<div class="block">Updates the color of the given region, if it exists.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../easel/ui/graphics/pie/PieChartWidget.html#updateRegionCount-int-int-">updateRegionCount</a></span>(int&nbsp;index,
+                 int&nbsp;count)</code>
+<div class="block">Updates the relative size of the given region, if it exists.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../../../easel/ui/graphics/pie/PieChartWidget.html" title="class in easel.ui.graphics.pie">PieChartWidget</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../easel/ui/graphics/pie/PieChartWidget.html#withCounts-int...-">withCounts</a></span>(int...&nbsp;counts)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../easel/ui/graphics/pie/PieChartWidget.html#withColors-com.badlogic.gdx.graphics.Color...-">withColors</a></span>(com.badlogic.gdx.graphics.Color...&nbsp;colors)</code>
+<div class="block">Sets all colors in the pie chart at once.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code><a href="../../../../easel/ui/graphics/pie/PieChartWidget.html" title="class in easel.ui.graphics.pie">PieChartWidget</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../easel/ui/graphics/pie/PieChartWidget.html#withCounts-int...-">withCounts</a></span>(int...&nbsp;counts)</code>
+<div class="block">Sets all counts in the pie chart at once.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code><a href="../../../../easel/ui/graphics/pie/PieChartWidget.html" title="class in easel.ui.graphics.pie">PieChartWidget</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../easel/ui/graphics/pie/PieChartWidget.html#withRegion-int-com.badlogic.gdx.graphics.Color-">withRegion</a></span>(int&nbsp;count,
+          com.badlogic.gdx.graphics.Color&nbsp;color)</code>
+<div class="block">Set the relative count and color of the next region in the pie chart.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -196,14 +229,14 @@ extends <a href="../../../../easel/ui/graphics/ShaderWidget.html" title="class i
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;easel.ui.graphics.<a href="../../../../easel/ui/graphics/ShaderWidget.html" title="class in easel.ui.graphics">ShaderWidget</a></h3>
-<code><a href="../../../../easel/ui/graphics/ShaderWidget.html#getContentHeight--">getContentHeight</a>, <a href="../../../../easel/ui/graphics/ShaderWidget.html#getContentWidth--">getContentWidth</a>, <a href="../../../../easel/ui/graphics/ShaderWidget.html#renderTexture-com.badlogic.gdx.graphics.g2d.SpriteBatch-">renderTexture</a>, <a href="../../../../easel/ui/graphics/ShaderWidget.html#renderWidget-com.badlogic.gdx.graphics.g2d.SpriteBatch-">renderWidget</a></code></li>
+<code><a href="../../../../easel/ui/graphics/ShaderWidget.html#getContentHeight--">getContentHeight</a>, <a href="../../../../easel/ui/graphics/ShaderWidget.html#getContentWidth--">getContentWidth</a>, <a href="../../../../easel/ui/graphics/ShaderWidget.html#renderTexture-com.badlogic.gdx.graphics.g2d.SpriteBatch-">renderTexture</a>, <a href="../../../../easel/ui/graphics/ShaderWidget.html#renderWidget-com.badlogic.gdx.graphics.g2d.SpriteBatch-">renderWidget</a>, <a href="../../../../easel/ui/graphics/ShaderWidget.html#withDimensions-float-float-">withDimensions</a>, <a href="../../../../easel/ui/graphics/ShaderWidget.html#withHeight-float-">withHeight</a>, <a href="../../../../easel/ui/graphics/ShaderWidget.html#withWidth-float-">withWidth</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.easel.ui.AbstractWidget">
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;easel.ui.<a href="../../../../easel/ui/AbstractWidget.html" title="class in easel.ui">AbstractWidget</a></h3>
-<code><a href="../../../../easel/ui/AbstractWidget.html#anchoredAt-float-float-easel.ui.AnchorPosition-">anchoredAt</a>, <a href="../../../../easel/ui/AbstractWidget.html#anchoredAt-float-float-easel.ui.AnchorPosition-float-">anchoredAt</a>, <a href="../../../../easel/ui/AbstractWidget.html#anchoredAt-float-float-easel.ui.AnchorPosition-easel.ui.InterpolationSpeed-">anchoredAt</a>, <a href="../../../../easel/ui/AbstractWidget.html#anchoredAt-float-float-easel.ui.AnchorPosition-easel.ui.InterpolationSpeed-float-">anchoredAt</a>, <a href="../../../../easel/ui/AbstractWidget.html#anchoredCenteredOnMouse--">anchoredCenteredOnMouse</a>, <a href="../../../../easel/ui/AbstractWidget.html#anchoredCenteredOnMouse-float-">anchoredCenteredOnMouse</a>, <a href="../../../../easel/ui/AbstractWidget.html#anchoredCenteredOnMouse-float-float-easel.ui.AnchorPosition-">anchoredCenteredOnMouse</a>, <a href="../../../../easel/ui/AbstractWidget.html#anchoredCenteredOnMouse-float-float-easel.ui.AnchorPosition-float-">anchoredCenteredOnMouse</a>, <a href="../../../../easel/ui/AbstractWidget.html#anchoredCenteredOnScreen--">anchoredCenteredOnScreen</a>, <a href="../../../../easel/ui/AbstractWidget.html#anchoredCenteredOnScreen-easel.ui.InterpolationSpeed-">anchoredCenteredOnScreen</a>, <a href="../../../../easel/ui/AbstractWidget.html#getBottom--">getBottom</a>, <a href="../../../../easel/ui/AbstractWidget.html#getContentBottom--">getContentBottom</a>, <a href="../../../../easel/ui/AbstractWidget.html#getContentCenterX--">getContentCenterX</a>, <a href="../../../../easel/ui/AbstractWidget.html#getContentCenterY--">getContentCenterY</a>, <a href="../../../../easel/ui/AbstractWidget.html#getContentLeft--">getContentLeft</a>, <a href="../../../../easel/ui/AbstractWidget.html#getContentRight--">getContentRight</a>, <a href="../../../../easel/ui/AbstractWidget.html#getContentTop--">getContentTop</a>, <a href="../../../../easel/ui/AbstractWidget.html#getHeight--">getHeight</a>, <a href="../../../../easel/ui/AbstractWidget.html#getLeft--">getLeft</a>, <a href="../../../../easel/ui/AbstractWidget.html#getRight--">getRight</a>, <a href="../../../../easel/ui/AbstractWidget.html#getTop--">getTop</a>, <a href="../../../../easel/ui/AbstractWidget.html#getWidth--">getWidth</a>, <a href="../../../../easel/ui/AbstractWidget.html#hide--">hide</a>, <a href="../../../../easel/ui/AbstractWidget.html#initializeInteractivity--">initializeInteractivity</a>, <a href="../../../../easel/ui/AbstractWidget.html#makeMovable--">makeMovable</a>, <a href="../../../../easel/ui/AbstractWidget.html#moveTowardsTarget--">moveTowardsTarget</a>, <a href="../../../../easel/ui/AbstractWidget.html#onLeftClick-java.util.function.Consumer-">onLeftClick</a>, <a href="../../../../easel/ui/AbstractWidget.html#onMouseEnter-java.util.function.Consumer-">onMouseEnter</a>, <a href="../../../../easel/ui/AbstractWidget.html#onMouseLeave-java.util.function.Consumer-">onMouseLeave</a>, <a href="../../../../easel/ui/AbstractWidget.html#onRightClick-java.util.function.Consumer-">onRightClick</a>, <a href="../../../../easel/ui/AbstractWidget.html#refreshAnchor--">refreshAnchor</a>, <a href="../../../../easel/ui/AbstractWidget.html#render-com.badlogic.gdx.graphics.g2d.SpriteBatch-">render</a>, <a href="../../../../easel/ui/AbstractWidget.html#renderTopLevel-com.badlogic.gdx.graphics.g2d.SpriteBatch-">renderTopLevel</a>, <a href="../../../../easel/ui/AbstractWidget.html#scaleHitboxToContent--">scaleHitboxToContent</a>, <a href="../../../../easel/ui/AbstractWidget.html#show--">show</a>, <a href="../../../../easel/ui/AbstractWidget.html#toString--">toString</a>, <a href="../../../../easel/ui/AbstractWidget.html#update--">update</a>, <a href="../../../../easel/ui/AbstractWidget.html#updateInteractivity--">updateInteractivity</a>, <a href="../../../../easel/ui/AbstractWidget.html#updateWidget--">updateWidget</a>, <a href="../../../../easel/ui/AbstractWidget.html#withMargins-float-">withMargins</a>, <a href="../../../../easel/ui/AbstractWidget.html#withMargins-float-float-">withMargins</a>, <a href="../../../../easel/ui/AbstractWidget.html#withMargins-float-float-float-float-">withMargins</a></code></li>
+<code><a href="../../../../easel/ui/AbstractWidget.html#anchoredAt-float-float-easel.ui.AnchorPosition-">anchoredAt</a>, <a href="../../../../easel/ui/AbstractWidget.html#anchoredAt-float-float-easel.ui.AnchorPosition-easel.ui.InterpolationSpeed-">anchoredAt</a>, <a href="../../../../easel/ui/AbstractWidget.html#anchoredAtClamped-float-float-easel.ui.AnchorPosition-float-">anchoredAtClamped</a>, <a href="../../../../easel/ui/AbstractWidget.html#anchoredAtClamped-float-float-easel.ui.AnchorPosition-easel.ui.InterpolationSpeed-float-">anchoredAtClamped</a>, <a href="../../../../easel/ui/AbstractWidget.html#anchoredCenteredOnMouse--">anchoredCenteredOnMouse</a>, <a href="../../../../easel/ui/AbstractWidget.html#anchoredCenteredOnMouse-float-float-easel.ui.AnchorPosition-">anchoredCenteredOnMouse</a>, <a href="../../../../easel/ui/AbstractWidget.html#anchoredCenteredOnMouseClamped-float-">anchoredCenteredOnMouseClamped</a>, <a href="../../../../easel/ui/AbstractWidget.html#anchoredCenteredOnMouseClamped-float-float-easel.ui.AnchorPosition-float-">anchoredCenteredOnMouseClamped</a>, <a href="../../../../easel/ui/AbstractWidget.html#anchoredCenteredOnScreen--">anchoredCenteredOnScreen</a>, <a href="../../../../easel/ui/AbstractWidget.html#anchoredCenteredOnScreen-easel.ui.InterpolationSpeed-">anchoredCenteredOnScreen</a>, <a href="../../../../easel/ui/AbstractWidget.html#cancelMovementQueue-boolean-">cancelMovementQueue</a>, <a href="../../../../easel/ui/AbstractWidget.html#cancelMovementQueueForAllChildren-boolean-">cancelMovementQueueForAllChildren</a>, <a href="../../../../easel/ui/AbstractWidget.html#delayedTranslate-float-float-easel.ui.InterpolationSpeed-long-">delayedTranslate</a>, <a href="../../../../easel/ui/AbstractWidget.html#getBottom--">getBottom</a>, <a href="../../../../easel/ui/AbstractWidget.html#getContentBottom--">getContentBottom</a>, <a href="../../../../easel/ui/AbstractWidget.html#getContentCenterX--">getContentCenterX</a>, <a href="../../../../easel/ui/AbstractWidget.html#getContentCenterY--">getContentCenterY</a>, <a href="../../../../easel/ui/AbstractWidget.html#getContentLeft--">getContentLeft</a>, <a href="../../../../easel/ui/AbstractWidget.html#getContentRight--">getContentRight</a>, <a href="../../../../easel/ui/AbstractWidget.html#getContentTop--">getContentTop</a>, <a href="../../../../easel/ui/AbstractWidget.html#getHeight--">getHeight</a>, <a href="../../../../easel/ui/AbstractWidget.html#getLeft--">getLeft</a>, <a href="../../../../easel/ui/AbstractWidget.html#getRight--">getRight</a>, <a href="../../../../easel/ui/AbstractWidget.html#getTop--">getTop</a>, <a href="../../../../easel/ui/AbstractWidget.html#getWidth--">getWidth</a>, <a href="../../../../easel/ui/AbstractWidget.html#hide--">hide</a>, <a href="../../../../easel/ui/AbstractWidget.html#initializeInteractivity--">initializeInteractivity</a>, <a href="../../../../easel/ui/AbstractWidget.html#isMouseInBounds--">isMouseInBounds</a>, <a href="../../../../easel/ui/AbstractWidget.html#isMouseInContentBounds--">isMouseInContentBounds</a>, <a href="../../../../easel/ui/AbstractWidget.html#leftMouseClick--">leftMouseClick</a>, <a href="../../../../easel/ui/AbstractWidget.html#mouseEnter--">mouseEnter</a>, <a href="../../../../easel/ui/AbstractWidget.html#mouseLeave--">mouseLeave</a>, <a href="../../../../easel/ui/AbstractWidget.html#onLeftClick-java.util.function.Consumer-">onLeftClick</a>, <a href="../../../../easel/ui/AbstractWidget.html#onMouseEnter-java.util.function.Consumer-">onMouseEnter</a>, <a href="../../../../easel/ui/AbstractWidget.html#onMouseLeave-java.util.function.Consumer-">onMouseLeave</a>, <a href="../../../../easel/ui/AbstractWidget.html#onRightClick-java.util.function.Consumer-">onRightClick</a>, <a href="../../../../easel/ui/AbstractWidget.html#refreshAnchor--">refreshAnchor</a>, <a href="../../../../easel/ui/AbstractWidget.html#render-com.badlogic.gdx.graphics.g2d.SpriteBatch-">render</a>, <a href="../../../../easel/ui/AbstractWidget.html#renderTopLevel-com.badlogic.gdx.graphics.g2d.SpriteBatch-">renderTopLevel</a>, <a href="../../../../easel/ui/AbstractWidget.html#resolveMovementQueue--">resolveMovementQueue</a>, <a href="../../../../easel/ui/AbstractWidget.html#rightMouseClick--">rightMouseClick</a>, <a href="../../../../easel/ui/AbstractWidget.html#scaleHitboxToContent--">scaleHitboxToContent</a>, <a href="../../../../easel/ui/AbstractWidget.html#setAllDelayedMovement-float-float-easel.ui.InterpolationSpeed-long-">setAllDelayedMovement</a>, <a href="../../../../easel/ui/AbstractWidget.html#setChildrenDelayedMovement-float-float-easel.ui.InterpolationSpeed-long-">setChildrenDelayedMovement</a>, <a href="../../../../easel/ui/AbstractWidget.html#show--">show</a>, <a href="../../../../easel/ui/AbstractWidget.html#toString--">toString</a>, <a href="../../../../easel/ui/AbstractWidget.html#translate-float-float-easel.ui.InterpolationSpeed-">translate</a>, <a href="../../../../easel/ui/AbstractWidget.html#update--">update</a>, <a href="../../../../easel/ui/AbstractWidget.html#updateInteractivity--">updateInteractivity</a>, <a href="../../../../easel/ui/AbstractWidget.html#updateWidget--">updateWidget</a>, <a href="../../../../easel/ui/AbstractWidget.html#withMargins-float-">withMargins</a>, <a href="../../../../easel/ui/AbstractWidget.html#withMargins-float-float-">withMargins</a>, <a href="../../../../easel/ui/AbstractWidget.html#withMargins-float-float-float-float-">withMargins</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -234,6 +267,12 @@ extends <a href="../../../../easel/ui/graphics/ShaderWidget.html" title="class i
 <h4>PieChartWidget</h4>
 <pre>public&nbsp;PieChartWidget(float&nbsp;width,
                       float&nbsp;height)</pre>
+<div class="block">Constructs a new pie-chart that will render with the given width or height. The pie chart will be rendered as a square up to the smaller dimension. Note: the pie chart itself will be a little bit smaller than the given region as the radius used internally does not stretch all the way to the sides by design.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>width</code> - the width of the widget</dd>
+<dd><code>height</code> - the height of the widget</dd>
+</dl>
 </li>
 </ul>
 </li>
@@ -251,6 +290,16 @@ extends <a href="../../../../easel/ui/graphics/ShaderWidget.html" title="class i
 <li class="blockList">
 <h4>withCounts</h4>
 <pre>public&nbsp;<a href="../../../../easel/ui/graphics/pie/PieChartWidget.html" title="class in easel.ui.graphics.pie">PieChartWidget</a>&nbsp;withCounts(int...&nbsp;counts)</pre>
+<div class="block">Sets all counts in the pie chart at once. Each count determines how much relative space that particular region gets as compared to the whole area, e.g. counts of <code>withCounts(1, 1)</code> will result in two regions each taking up exactly 50% of the final area. The order of the variadic list determines the order in which the regions are constructed. This function automatically clears out any previously existing counts, but will not clear out colors. This is intended to be used alongside <a href="../../../../easel/ui/graphics/pie/PieChartWidget.html#withColors-com.badlogic.gdx.graphics.Color...-"><code>withColors(Color...)</code></a> with the same number of arguments to each, and not doing so should be considered undefined behavior.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>counts</code> - a list of relative counts determining the size of each region</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this widget</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../easel/ui/graphics/pie/PieChartWidget.html#withColors-com.badlogic.gdx.graphics.Color...-"><code>withColors(Color...)</code></a>, 
+<a href="../../../../easel/ui/graphics/pie/PieChartWidget.html#withRegion-int-com.badlogic.gdx.graphics.Color-"><code>withRegion(int, Color)</code></a></dd>
+</dl>
 </li>
 </ul>
 <a name="withColors-com.badlogic.gdx.graphics.Color...-">
@@ -260,6 +309,90 @@ extends <a href="../../../../easel/ui/graphics/ShaderWidget.html" title="class i
 <li class="blockList">
 <h4>withColors</h4>
 <pre>public&nbsp;<a href="../../../../easel/ui/graphics/pie/PieChartWidget.html" title="class in easel.ui.graphics.pie">PieChartWidget</a>&nbsp;withColors(com.badlogic.gdx.graphics.Color...&nbsp;colors)</pre>
+<div class="block">Sets all colors in the pie chart at once. This function will clear out any existing colors added previously and is intended to be used alongside <a href="../../../../easel/ui/graphics/pie/PieChartWidget.html#withCounts-int...-"><code>withCounts(int...)</code></a> with the same number of parameters to each. The order in the variadic list determines the order rendered on the pie chart, going counter-clockwise from the top right.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>colors</code> - a list of colors for each region</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this widget</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../easel/ui/graphics/pie/PieChartWidget.html#withCounts-int...-"><code>withCounts(int...)</code></a>, 
+<a href="../../../../easel/ui/graphics/pie/PieChartWidget.html#withRegion-int-com.badlogic.gdx.graphics.Color-"><code>withRegion(int, Color)</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="clear--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>clear</h4>
+<pre>public&nbsp;<a href="../../../../easel/ui/graphics/pie/PieChartWidget.html" title="class in easel.ui.graphics.pie">PieChartWidget</a>&nbsp;clear()</pre>
+<div class="block">Clears out all previously stored region sizes and colors. Not necessary to be called unless you're using the <a href="../../../../easel/ui/graphics/pie/PieChartWidget.html#withRegion-int-com.badlogic.gdx.graphics.Color-"><code>withRegion(int, Color)</code></a> mutators and wish to reset any previously added regions. The next <a href="../../../../easel/ui/graphics/pie/PieChartWidget.html#withRegion-int-com.badlogic.gdx.graphics.Color-"><code>withRegion(int, Color)</code></a> call after this function will be the first region in the chart.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this widget</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../easel/ui/graphics/pie/PieChartWidget.html#withRegion-int-com.badlogic.gdx.graphics.Color-"><code>withRegion(int, Color)</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="withRegion-int-com.badlogic.gdx.graphics.Color-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>withRegion</h4>
+<pre>public&nbsp;<a href="../../../../easel/ui/graphics/pie/PieChartWidget.html" title="class in easel.ui.graphics.pie">PieChartWidget</a>&nbsp;withRegion(int&nbsp;count,
+                                 com.badlogic.gdx.graphics.Color&nbsp;color)</pre>
+<div class="block">Set the relative count and color of the next region in the pie chart. This function is intended to be repeatedly chained until all regions are defined, and serves as a way to individually add regions instead of doing them in bulk (e.g. <a href="../../../../easel/ui/graphics/pie/PieChartWidget.html#withCounts-int...-"><code>etc.</code></a>. The first region constructed by this function will be the top right, with the remaining regions all relative to each other and proceeding counter-clockwise.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>count</code> - the relative size of this region (compared to other uses of this function)</dd>
+<dd><code>color</code> - the color for this region</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this widget</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../easel/ui/graphics/pie/PieChartWidget.html#clear--"><code>clear()</code></a>, 
+<a href="../../../../easel/ui/graphics/pie/PieChartWidget.html#withCounts-int...-"><code>withCounts(int...)</code></a>, 
+<a href="../../../../easel/ui/graphics/pie/PieChartWidget.html#withColors-com.badlogic.gdx.graphics.Color...-"><code>withColors(Color...)</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="updateRegionCount-int-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>updateRegionCount</h4>
+<pre>public&nbsp;boolean&nbsp;updateRegionCount(int&nbsp;index,
+                                 int&nbsp;count)</pre>
+<div class="block">Updates the relative size of the given region, if it exists. The index is determined by the order in which the region is added (starting at 0) using the bulk input functions (e.g. <a href="../../../../easel/ui/graphics/pie/PieChartWidget.html#withCounts-int...-"><code>withCounts(int...)</code></a>) or the particular input function (e.g. <a href="../../../../easel/ui/graphics/pie/PieChartWidget.html#withRegion-int-com.badlogic.gdx.graphics.Color-"><code>withRegion(int, Color)</code></a>).</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>index</code> - the zero-based index referring to the particular region to update</dd>
+<dd><code>count</code> - the new relative size of the region</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if there is a region at that particular index which was updated; false if the index given is out of bounds</dd>
+</dl>
+</li>
+</ul>
+<a name="updateRegionColor-int-com.badlogic.gdx.graphics.Color-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>updateRegionColor</h4>
+<pre>public&nbsp;boolean&nbsp;updateRegionColor(int&nbsp;index,
+                                 com.badlogic.gdx.graphics.Color&nbsp;color)</pre>
+<div class="block">Updates the color of the given region, if it exists. The index is determined by the order in which the region is added (starting at 0) using the bulk input functions (e.g. <a href="../../../../easel/ui/graphics/pie/PieChartWidget.html#withCounts-int...-"><code>withCounts(int...)</code></a>) or the particular input function (e.g. <a href="../../../../easel/ui/graphics/pie/PieChartWidget.html#withRegion-int-com.badlogic.gdx.graphics.Color-"><code>withRegion(int, Color)</code></a>).</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>index</code> - the zero-based index referring to the particular region to update</dd>
+<dd><code>color</code> - the new color of the region</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if there is a region at that particular index which was updated; false if the index given is out of bounds</dd>
+</dl>
 </li>
 </ul>
 <a name="setUniforms--">

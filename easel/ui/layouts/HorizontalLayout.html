@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -157,14 +157,18 @@ extends <a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/layouts/HorizontalLayout.html#defaultChildAnchorPosition">defaultChildAnchorPosition</a></span></code>&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>protected float</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/layouts/HorizontalLayout.html#spacing">spacing</a></span></code>&nbsp;</td>
+<td class="colFirst"><code>protected boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/layouts/HorizontalLayout.html#shouldAutoScaleToContent">shouldAutoScaleToContent</a></span></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected float</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/layouts/HorizontalLayout.html#totalHeight">totalHeight</a></span></code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/layouts/HorizontalLayout.html#spacing">spacing</a></span></code>&nbsp;</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>protected float</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/layouts/HorizontalLayout.html#totalHeight">totalHeight</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>protected float</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/layouts/HorizontalLayout.html#totalWidth">totalWidth</a></span></code>&nbsp;</td>
 </tr>
@@ -190,8 +194,15 @@ extends <a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../easel/ui/layouts/HorizontalLayout.html#HorizontalLayout-float-">HorizontalLayout</a></span>(float&nbsp;spacing)</code>
+<div class="block">Constructs a new horizontal layout with the given horizontal spacing.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../easel/ui/layouts/HorizontalLayout.html#HorizontalLayout-float-float-">HorizontalLayout</a></span>(float&nbsp;desiredHeight,
-                float&nbsp;spacing)</code>&nbsp;</td>
+                float&nbsp;spacing)</code>
+<div class="block">Constructs a new horizontal layout with the given row height and horizontal spacing.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -217,81 +228,108 @@ extends <a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/layouts/HorizontalLayout.html#anchoredAt-float-float-easel.ui.AnchorPosition-easel.ui.InterpolationSpeed-">anchoredAt</a></span>(float&nbsp;x,
           float&nbsp;y,
           <a href="../../../easel/ui/AnchorPosition.html" title="enum in easel.ui">AnchorPosition</a>&nbsp;anchorPosition,
-          <a href="../../../easel/ui/InterpolationSpeed.html" title="enum in easel.ui">InterpolationSpeed</a>&nbsp;withDelay)</code>
+          <a href="../../../easel/ui/InterpolationSpeed.html" title="enum in easel.ui">InterpolationSpeed</a>&nbsp;movementSpeed)</code>
 <div class="block">
  Moves the widget towards a specific spot.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/layouts/HorizontalLayout.html#autoscale--">autoscale</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/layouts/HorizontalLayout.html#cancelMovementQueueForAllChildren-boolean-">cancelMovementQueueForAllChildren</a></span>(boolean&nbsp;shouldTryAndResolveOneLastTime)</code>&nbsp;</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/layouts/HorizontalLayout.html#clear--">clear</a></span>()</code>
 <div class="block">Stop managing all widgets previously managed by this layout.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>T</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/layouts/HorizontalLayout.html#forceChildAnchors-easel.ui.AnchorPosition-">forceChildAnchors</a></span>(<a href="../../../easel/ui/AnchorPosition.html" title="enum in easel.ui">AnchorPosition</a>&nbsp;forcedChildAnchorPosition)</code>
 <div class="block">Forcibly sets the anchor position of all current children to the given value.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>float</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/layouts/HorizontalLayout.html#getContentHeight--">getContentHeight</a></span>()</code>
 <div class="block">The internal content height of the widget (excludes margins).</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>float</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/layouts/HorizontalLayout.html#getContentWidth--">getContentWidth</a></span>()</code>
 <div class="block">The internal content width of the widget (excludes margins).</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/layouts/HorizontalLayout.html#hide--">hide</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>java.util.stream.Stream&lt;<a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui">AbstractWidget</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/layouts/HorizontalLayout.html#iterator--">iterator</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i10" class="altColor">
+<td class="colFirst"><code>&lt;T&gt;&nbsp;java.util.stream.Stream&lt;T&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/layouts/HorizontalLayout.html#iteratorOfType-java.lang.Class-">iteratorOfType</a></span>(java.lang.Class&lt;T&gt;&nbsp;clz)</code>
+<div class="block">A stream of children handled by this widget who are of the specific type, for convenience purposes.</div>
+</td>
+</tr>
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/layouts/HorizontalLayout.html#renderTopLevel-com.badlogic.gdx.graphics.g2d.SpriteBatch-">renderTopLevel</a></span>(com.badlogic.gdx.graphics.g2d.SpriteBatch&nbsp;sb)</code>
 <div class="block">
  Renders top level (especially tooltip) effects.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/layouts/HorizontalLayout.html#renderWidget-com.badlogic.gdx.graphics.g2d.SpriteBatch-">renderWidget</a></span>(com.badlogic.gdx.graphics.g2d.SpriteBatch&nbsp;sb)</code>
 <div class="block">
  Custom widgets should implement this method for rendering.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code><a href="../../../easel/ui/layouts/HorizontalLayout.html" title="class in easel.ui.layouts">HorizontalLayout</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/layouts/HorizontalLayout.html#resizeHeightToTallestChild--">resizeHeightToTallestChild</a></span>()</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/layouts/HorizontalLayout.html#scaleToTallestChild--">scaleToTallestChild</a></span>()</code>
 <div class="block">Replaces the <code>desiredHeight</code> set in the constructor (<a href="../../../easel/ui/layouts/HorizontalLayout.html#HorizontalLayout-float-float-"><code>HorizontalLayout(float, float)</code></a>) with the height of the tallest child.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i14" class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/layouts/HorizontalLayout.html#setChildrenDelayedMovement-float-float-easel.ui.InterpolationSpeed-long-">setChildrenDelayedMovement</a></span>(float&nbsp;deltaX,
+                          float&nbsp;deltaY,
+                          <a href="../../../easel/ui/InterpolationSpeed.html" title="enum in easel.ui">InterpolationSpeed</a>&nbsp;movementSpeed,
+                          long&nbsp;startingTimeMillis)</code>
+<div class="block">For use with <a href="../../../easel/ui/AbstractWidget.html#delayedTranslate-float-float-easel.ui.InterpolationSpeed-long-"><code>AbstractWidget.delayedTranslate(float, float, InterpolationSpeed, long)</code></a>.</div>
+</td>
+</tr>
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/layouts/HorizontalLayout.html#show--">show</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/layouts/HorizontalLayout.html#updateSize-easel.ui.AbstractWidget-">updateSize</a></span>(<a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui">AbstractWidget</a>&nbsp;newChild)</code>&nbsp;</td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>T</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/layouts/HorizontalLayout.html#withChild-easel.ui.AbstractWidget-">withChild</a></span>(<a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui">AbstractWidget</a>&nbsp;child)</code>
 <div class="block">Let this layout manage the given child using the <code>defaultChildAnchorPosition</code> as its internal anchor.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>T</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/layouts/HorizontalLayout.html#withChild-easel.ui.AbstractWidget-easel.ui.AnchorPosition-">withChild</a></span>(<a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui">AbstractWidget</a>&nbsp;child,
          <a href="../../../easel/ui/AnchorPosition.html" title="enum in easel.ui">AnchorPosition</a>&nbsp;anchor)</code>
 <div class="block">Let this layout manage the given child using the provided internal anchor.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>T</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/layouts/HorizontalLayout.html#withDefaultChildAnchorPosition-easel.ui.AnchorPosition-">withDefaultChildAnchorPosition</a></span>(<a href="../../../easel/ui/AnchorPosition.html" title="enum in easel.ui">AnchorPosition</a>&nbsp;defaultChildAnchorPosition)</code>
 <div class="block">Sets the AnchorPosition for all future children added to this widget.</div>
@@ -303,7 +341,7 @@ extends <a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;easel.ui.<a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui">AbstractWidget</a></h3>
-<code><a href="../../../easel/ui/AbstractWidget.html#anchoredAt-float-float-easel.ui.AnchorPosition-">anchoredAt</a>, <a href="../../../easel/ui/AbstractWidget.html#anchoredAt-float-float-easel.ui.AnchorPosition-float-">anchoredAt</a>, <a href="../../../easel/ui/AbstractWidget.html#anchoredAt-float-float-easel.ui.AnchorPosition-easel.ui.InterpolationSpeed-float-">anchoredAt</a>, <a href="../../../easel/ui/AbstractWidget.html#anchoredCenteredOnMouse--">anchoredCenteredOnMouse</a>, <a href="../../../easel/ui/AbstractWidget.html#anchoredCenteredOnMouse-float-">anchoredCenteredOnMouse</a>, <a href="../../../easel/ui/AbstractWidget.html#anchoredCenteredOnMouse-float-float-easel.ui.AnchorPosition-">anchoredCenteredOnMouse</a>, <a href="../../../easel/ui/AbstractWidget.html#anchoredCenteredOnMouse-float-float-easel.ui.AnchorPosition-float-">anchoredCenteredOnMouse</a>, <a href="../../../easel/ui/AbstractWidget.html#anchoredCenteredOnScreen--">anchoredCenteredOnScreen</a>, <a href="../../../easel/ui/AbstractWidget.html#anchoredCenteredOnScreen-easel.ui.InterpolationSpeed-">anchoredCenteredOnScreen</a>, <a href="../../../easel/ui/AbstractWidget.html#getBottom--">getBottom</a>, <a href="../../../easel/ui/AbstractWidget.html#getContentBottom--">getContentBottom</a>, <a href="../../../easel/ui/AbstractWidget.html#getContentCenterX--">getContentCenterX</a>, <a href="../../../easel/ui/AbstractWidget.html#getContentCenterY--">getContentCenterY</a>, <a href="../../../easel/ui/AbstractWidget.html#getContentLeft--">getContentLeft</a>, <a href="../../../easel/ui/AbstractWidget.html#getContentRight--">getContentRight</a>, <a href="../../../easel/ui/AbstractWidget.html#getContentTop--">getContentTop</a>, <a href="../../../easel/ui/AbstractWidget.html#getHeight--">getHeight</a>, <a href="../../../easel/ui/AbstractWidget.html#getLeft--">getLeft</a>, <a href="../../../easel/ui/AbstractWidget.html#getRight--">getRight</a>, <a href="../../../easel/ui/AbstractWidget.html#getTop--">getTop</a>, <a href="../../../easel/ui/AbstractWidget.html#getWidth--">getWidth</a>, <a href="../../../easel/ui/AbstractWidget.html#initializeInteractivity--">initializeInteractivity</a>, <a href="../../../easel/ui/AbstractWidget.html#makeMovable--">makeMovable</a>, <a href="../../../easel/ui/AbstractWidget.html#moveTowardsTarget--">moveTowardsTarget</a>, <a href="../../../easel/ui/AbstractWidget.html#onLeftClick-java.util.function.Consumer-">onLeftClick</a>, <a href="../../../easel/ui/AbstractWidget.html#onMouseEnter-java.util.function.Consumer-">onMouseEnter</a>, <a href="../../../easel/ui/AbstractWidget.html#onMouseLeave-java.util.function.Consumer-">onMouseLeave</a>, <a href="../../../easel/ui/AbstractWidget.html#onRightClick-java.util.function.Consumer-">onRightClick</a>, <a href="../../../easel/ui/AbstractWidget.html#refreshAnchor--">refreshAnchor</a>, <a href="../../../easel/ui/AbstractWidget.html#render-com.badlogic.gdx.graphics.g2d.SpriteBatch-">render</a>, <a href="../../../easel/ui/AbstractWidget.html#scaleHitboxToContent--">scaleHitboxToContent</a>, <a href="../../../easel/ui/AbstractWidget.html#toString--">toString</a>, <a href="../../../easel/ui/AbstractWidget.html#update--">update</a>, <a href="../../../easel/ui/AbstractWidget.html#updateInteractivity--">updateInteractivity</a>, <a href="../../../easel/ui/AbstractWidget.html#updateWidget--">updateWidget</a>, <a href="../../../easel/ui/AbstractWidget.html#withMargins-float-">withMargins</a>, <a href="../../../easel/ui/AbstractWidget.html#withMargins-float-float-">withMargins</a>, <a href="../../../easel/ui/AbstractWidget.html#withMargins-float-float-float-float-">withMargins</a></code></li>
+<code><a href="../../../easel/ui/AbstractWidget.html#anchoredAt-float-float-easel.ui.AnchorPosition-">anchoredAt</a>, <a href="../../../easel/ui/AbstractWidget.html#anchoredAtClamped-float-float-easel.ui.AnchorPosition-float-">anchoredAtClamped</a>, <a href="../../../easel/ui/AbstractWidget.html#anchoredAtClamped-float-float-easel.ui.AnchorPosition-easel.ui.InterpolationSpeed-float-">anchoredAtClamped</a>, <a href="../../../easel/ui/AbstractWidget.html#anchoredCenteredOnMouse--">anchoredCenteredOnMouse</a>, <a href="../../../easel/ui/AbstractWidget.html#anchoredCenteredOnMouse-float-float-easel.ui.AnchorPosition-">anchoredCenteredOnMouse</a>, <a href="../../../easel/ui/AbstractWidget.html#anchoredCenteredOnMouseClamped-float-">anchoredCenteredOnMouseClamped</a>, <a href="../../../easel/ui/AbstractWidget.html#anchoredCenteredOnMouseClamped-float-float-easel.ui.AnchorPosition-float-">anchoredCenteredOnMouseClamped</a>, <a href="../../../easel/ui/AbstractWidget.html#anchoredCenteredOnScreen--">anchoredCenteredOnScreen</a>, <a href="../../../easel/ui/AbstractWidget.html#anchoredCenteredOnScreen-easel.ui.InterpolationSpeed-">anchoredCenteredOnScreen</a>, <a href="../../../easel/ui/AbstractWidget.html#cancelMovementQueue-boolean-">cancelMovementQueue</a>, <a href="../../../easel/ui/AbstractWidget.html#delayedTranslate-float-float-easel.ui.InterpolationSpeed-long-">delayedTranslate</a>, <a href="../../../easel/ui/AbstractWidget.html#getBottom--">getBottom</a>, <a href="../../../easel/ui/AbstractWidget.html#getContentBottom--">getContentBottom</a>, <a href="../../../easel/ui/AbstractWidget.html#getContentCenterX--">getContentCenterX</a>, <a href="../../../easel/ui/AbstractWidget.html#getContentCenterY--">getContentCenterY</a>, <a href="../../../easel/ui/AbstractWidget.html#getContentLeft--">getContentLeft</a>, <a href="../../../easel/ui/AbstractWidget.html#getContentRight--">getContentRight</a>, <a href="../../../easel/ui/AbstractWidget.html#getContentTop--">getContentTop</a>, <a href="../../../easel/ui/AbstractWidget.html#getHeight--">getHeight</a>, <a href="../../../easel/ui/AbstractWidget.html#getLeft--">getLeft</a>, <a href="../../../easel/ui/AbstractWidget.html#getRight--">getRight</a>, <a href="../../../easel/ui/AbstractWidget.html#getTop--">getTop</a>, <a href="../../../easel/ui/AbstractWidget.html#getWidth--">getWidth</a>, <a href="../../../easel/ui/AbstractWidget.html#initializeInteractivity--">initializeInteractivity</a>, <a href="../../../easel/ui/AbstractWidget.html#isMouseInBounds--">isMouseInBounds</a>, <a href="../../../easel/ui/AbstractWidget.html#isMouseInContentBounds--">isMouseInContentBounds</a>, <a href="../../../easel/ui/AbstractWidget.html#leftMouseClick--">leftMouseClick</a>, <a href="../../../easel/ui/AbstractWidget.html#mouseEnter--">mouseEnter</a>, <a href="../../../easel/ui/AbstractWidget.html#mouseLeave--">mouseLeave</a>, <a href="../../../easel/ui/AbstractWidget.html#onLeftClick-java.util.function.Consumer-">onLeftClick</a>, <a href="../../../easel/ui/AbstractWidget.html#onMouseEnter-java.util.function.Consumer-">onMouseEnter</a>, <a href="../../../easel/ui/AbstractWidget.html#onMouseLeave-java.util.function.Consumer-">onMouseLeave</a>, <a href="../../../easel/ui/AbstractWidget.html#onRightClick-java.util.function.Consumer-">onRightClick</a>, <a href="../../../easel/ui/AbstractWidget.html#refreshAnchor--">refreshAnchor</a>, <a href="../../../easel/ui/AbstractWidget.html#render-com.badlogic.gdx.graphics.g2d.SpriteBatch-">render</a>, <a href="../../../easel/ui/AbstractWidget.html#resolveMovementQueue--">resolveMovementQueue</a>, <a href="../../../easel/ui/AbstractWidget.html#rightMouseClick--">rightMouseClick</a>, <a href="../../../easel/ui/AbstractWidget.html#scaleHitboxToContent--">scaleHitboxToContent</a>, <a href="../../../easel/ui/AbstractWidget.html#setAllDelayedMovement-float-float-easel.ui.InterpolationSpeed-long-">setAllDelayedMovement</a>, <a href="../../../easel/ui/AbstractWidget.html#toString--">toString</a>, <a href="../../../easel/ui/AbstractWidget.html#translate-float-float-easel.ui.InterpolationSpeed-">translate</a>, <a href="../../../easel/ui/AbstractWidget.html#update--">update</a>, <a href="../../../easel/ui/AbstractWidget.html#updateInteractivity--">updateInteractivity</a>, <a href="../../../easel/ui/AbstractWidget.html#updateWidget--">updateWidget</a>, <a href="../../../easel/ui/AbstractWidget.html#withMargins-float-">withMargins</a>, <a href="../../../easel/ui/AbstractWidget.html#withMargins-float-float-">withMargins</a>, <a href="../../../easel/ui/AbstractWidget.html#withMargins-float-float-float-float-">withMargins</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -365,10 +403,19 @@ extends <a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui
 <a name="spacing">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>spacing</h4>
 <pre>protected&nbsp;float spacing</pre>
+</li>
+</ul>
+<a name="shouldAutoScaleToContent">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>shouldAutoScaleToContent</h4>
+<pre>protected&nbsp;boolean shouldAutoScaleToContent</pre>
 </li>
 </ul>
 </li>
@@ -382,11 +429,35 @@ extends <a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui
 <a name="HorizontalLayout-float-float-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>HorizontalLayout</h4>
 <pre>public&nbsp;HorizontalLayout(float&nbsp;desiredHeight,
                         float&nbsp;spacing)</pre>
+<div class="block">Constructs a new horizontal layout with the given row height and horizontal spacing. Child widgets of height less than this <code>desiredHeight</code> will be able to float around vertically in their assigned slot using their anchor position. You can use the other constructor (<a href="../../../easel/ui/layouts/HorizontalLayout.html#HorizontalLayout-float-"><code>HorizontalLayout(float)</code></a>) if you want to automatically scale the heights to the tallest child, but using this version means the height allowed for children will not be changed unless you manually alter it using <a href="../../../easel/ui/layouts/HorizontalLayout.html#scaleToTallestChild--"><code>scaleToTallestChild()</code></a>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>desiredHeight</code> - the height of the horizontal layout (for child anchoring purposes)</dd>
+<dd><code>spacing</code> - the horizontal gap in between elements of the layout</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../easel/ui/layouts/HorizontalLayout.html#HorizontalLayout-float-"><code>HorizontalLayout(float)</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="HorizontalLayout-float-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>HorizontalLayout</h4>
+<pre>public&nbsp;HorizontalLayout(float&nbsp;spacing)</pre>
+<div class="block">Constructs a new horizontal layout with the given horizontal spacing. This constructor guarantees that <a href="../../../easel/ui/layouts/HorizontalLayout.html#scaleToTallestChild--"><code>scaleToTallestChild()</code></a> will be called the FIRST time that any <a href="../../../easel/ui/AbstractWidget.html#anchoredAt-float-float-easel.ui.AnchorPosition-"><code>AbstractWidget.anchoredAt(float, float, AnchorPosition)</code></a> anchoring occurs (only the first time). This is essentially a convenience method for the usual pattern where the row height set by the other constructor is ignored with a manual <a href="../../../easel/ui/layouts/HorizontalLayout.html#scaleToTallestChild--"><code>scaleToTallestChild()</code></a> before anchoring. This variant just does it automatically. To ensure performance, this auto-scaling only occurs the first time an anchoring occurs (which, presumably is after all children have been added), and must be done manually later if things change beyond that.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>spacing</code> - the horizontal gap in between elements of the layout</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../easel/ui/layouts/HorizontalLayout.html#HorizontalLayout-float-float-"><code>HorizontalLayout(float, float)</code></a></dd>
+</dl>
 </li>
 </ul>
 </li>
@@ -446,6 +517,15 @@ extends <a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui
 <pre>protected&nbsp;void&nbsp;updateSize(<a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui">AbstractWidget</a>&nbsp;newChild)</pre>
 </li>
 </ul>
+<a name="autoscale--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>autoscale</h4>
+<pre>protected&nbsp;void&nbsp;autoscale()</pre>
+</li>
+</ul>
 <a name="anchorChildren-easel.ui.InterpolationSpeed-">
 <!--   -->
 </a>
@@ -465,13 +545,13 @@ extends <a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui
 <div class="block">Stop managing all widgets previously managed by this layout.</div>
 </li>
 </ul>
-<a name="resizeHeightToTallestChild--">
+<a name="scaleToTallestChild--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>resizeHeightToTallestChild</h4>
-<pre>public&nbsp;<a href="../../../easel/ui/layouts/HorizontalLayout.html" title="class in easel.ui.layouts">HorizontalLayout</a>&nbsp;resizeHeightToTallestChild()</pre>
+<h4>scaleToTallestChild</h4>
+<pre>public&nbsp;<a href="../../../easel/ui/layouts/HorizontalLayout.html" title="class in easel.ui.layouts">HorizontalLayout</a>&nbsp;scaleToTallestChild()</pre>
 <div class="block">Replaces the <code>desiredHeight</code> set in the constructor (<a href="../../../easel/ui/layouts/HorizontalLayout.html#HorizontalLayout-float-float-"><code>HorizontalLayout(float, float)</code></a>) with the height of the tallest child. Useful for dynamically scaling the height of this widget to fit the heights of its children. NOTE: should call this function AFTER adding all children and before anchoring.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -559,7 +639,7 @@ extends <a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui
 <pre>public&nbsp;T&nbsp;anchoredAt(float&nbsp;x,
                     float&nbsp;y,
                     <a href="../../../easel/ui/AnchorPosition.html" title="enum in easel.ui">AnchorPosition</a>&nbsp;anchorPosition,
-                    <a href="../../../easel/ui/InterpolationSpeed.html" title="enum in easel.ui">InterpolationSpeed</a>&nbsp;withDelay)</pre>
+                    <a href="../../../easel/ui/InterpolationSpeed.html" title="enum in easel.ui">InterpolationSpeed</a>&nbsp;movementSpeed)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../easel/ui/AbstractWidget.html#anchoredAt-float-float-easel.ui.AnchorPosition-easel.ui.InterpolationSpeed-">AbstractWidget</a></code></span></div>
 <div class="block"><p>
  Moves the widget towards a specific spot. The <code>anchorPosition</code> defines the point on the widget that will be placed at the position <code>(x, y)</code>.
@@ -568,7 +648,7 @@ extends <a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui
  For example, <code>anchoredAt(100, 200, AnchorPosition.LEFT_BOTTOM, InterpolationSpeed.FAST)</code> will set the bottom-left corner of the widget to 100 pixels from the left side of the screen and 200 pixels from the bottom of the screen. The widget then renders up and to the right of this point since we anchored at an <code>AnchorPosition.LEFT_BOTTOM</code>. As a second example, using <code>AnchorPosition.CENTER</code> ensures that <code>(x, y)</code> will be the center of the widget.
  </p>
  <p>
- The interpolation speed <code>withDelay</code> determines how quickly the widget moves to the target location. Using a speed other than <code>InterpolationSpeed.INSTANT</code> makes the widget move towards the desired position over the next few frames in a smoothly animated manner. For convenience since instant moving is often the desired effect, see <a href="../../../easel/ui/AbstractWidget.html#anchoredAt-float-float-easel.ui.AnchorPosition-"><code>AbstractWidget.anchoredAt(float, float, AnchorPosition)</code></a>.
+ The interpolation speed <code>movementSpeed</code> determines how quickly the widget moves to the target location. Using a speed other than <code>InterpolationSpeed.INSTANT</code> makes the widget move towards the desired position over the next few frames in a smoothly animated manner. For convenience since instant moving is often the desired effect, see <a href="../../../easel/ui/AbstractWidget.html#anchoredAt-float-float-easel.ui.AnchorPosition-"><code>AbstractWidget.anchoredAt(float, float, AnchorPosition)</code></a>.
  </p>
  <p>
  Note: you should always anchor at least once before rendering. For more dynamic widgets that move a lot (e.g. a tooltip dependent on the mouse cursor location using <code>InputHelper.mX</code> and <code>InputHelper.mY</code>), a general pattern is to call <code>anchoredAt</code> right before rendering in your main render function, e.g.:
@@ -586,13 +666,82 @@ extends <a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui
 <dd><code>x</code> - the x position in pixels from the left edge of the screen</dd>
 <dd><code>y</code> - the y position in pixels from the bottom edge of the screen</dd>
 <dd><code>anchorPosition</code> - what piece of the widget will be moved to <code>(x, y)</code></dd>
-<dd><code>withDelay</code> - how quickly the widget will move towards the desired position</dd>
+<dd><code>movementSpeed</code> - how quickly the widget will move towards the desired position</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>this widget</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../easel/ui/AbstractWidget.html#anchoredAt-float-float-easel.ui.AnchorPosition-"><code>AbstractWidget.anchoredAt(float, float, AnchorPosition)</code></a>, 
-<a href="../../../easel/ui/AbstractWidget.html#anchoredAt-float-float-easel.ui.AnchorPosition-float-"><code>AbstractWidget.anchoredAt(float, float, AnchorPosition, float)</code></a>, 
-<a href="../../../easel/ui/AbstractWidget.html#anchoredAt-float-float-easel.ui.AnchorPosition-easel.ui.InterpolationSpeed-float-"><code>AbstractWidget.anchoredAt(float, float, AnchorPosition, InterpolationSpeed, float)</code></a></dd>
+<a href="../../../easel/ui/AbstractWidget.html#anchoredAtClamped-float-float-easel.ui.AnchorPosition-float-"><code>AbstractWidget.anchoredAtClamped(float, float, AnchorPosition, float)</code></a>, 
+<a href="../../../easel/ui/AbstractWidget.html#anchoredAtClamped-float-float-easel.ui.AnchorPosition-easel.ui.InterpolationSpeed-float-"><code>AbstractWidget.anchoredAtClamped(float, float, AnchorPosition, InterpolationSpeed, float)</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="setChildrenDelayedMovement-float-float-easel.ui.InterpolationSpeed-long-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setChildrenDelayedMovement</h4>
+<pre>protected&nbsp;void&nbsp;setChildrenDelayedMovement(float&nbsp;deltaX,
+                                          float&nbsp;deltaY,
+                                          <a href="../../../easel/ui/InterpolationSpeed.html" title="enum in easel.ui">InterpolationSpeed</a>&nbsp;movementSpeed,
+                                          long&nbsp;startingTimeMillis)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../easel/ui/AbstractWidget.html#setChildrenDelayedMovement-float-float-easel.ui.InterpolationSpeed-long-">AbstractWidget</a></code></span></div>
+<div class="block">For use with <a href="../../../easel/ui/AbstractWidget.html#delayedTranslate-float-float-easel.ui.InterpolationSpeed-long-"><code>AbstractWidget.delayedTranslate(float, float, InterpolationSpeed, long)</code></a>. Make sure any widget with children (e.g. containers, layouts, etc.) overrides this function and calls <a href="../../../easel/ui/AbstractWidget.html#setAllDelayedMovement-float-float-easel.ui.InterpolationSpeed-long-"><code>AbstractWidget.setAllDelayedMovement(float, float, InterpolationSpeed, long)</code></a> using the input to this function on all direct descendants. This is required if you want to be able to use a delayed anchoredAt command on custom widgets.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../easel/ui/AbstractWidget.html#setChildrenDelayedMovement-float-float-easel.ui.InterpolationSpeed-long-">setChildrenDelayedMovement</a></code>&nbsp;in class&nbsp;<code><a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui">AbstractWidget</a>&lt;T extends easel.ui.layouts.AbstractOneDimensionalLayout&lt;T&gt;&gt;</code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>deltaX</code> - how much movement horizontally</dd>
+<dd><code>deltaY</code> - how much movement vertically</dd>
+<dd><code>movementSpeed</code> - how fast the widget will move towards the target, once startingTimeMillis is reached (i.e. <code>System.currentTimeMillis()</code> is greater than or equal to this starting time)</dd>
+<dd><code>startingTimeMillis</code> - a time generated by an offset of <code>System.currentTimeMillis()</code>, determined by the original <a href="../../../easel/ui/AbstractWidget.html#delayedTranslate-float-float-easel.ui.InterpolationSpeed-long-"><code>AbstractWidget.delayedTranslate(float, float, InterpolationSpeed, long)</code></a> function that starts this chain</dd>
+</dl>
+</li>
+</ul>
+<a name="cancelMovementQueueForAllChildren-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>cancelMovementQueueForAllChildren</h4>
+<pre>protected&nbsp;void&nbsp;cancelMovementQueueForAllChildren(boolean&nbsp;shouldTryAndResolveOneLastTime)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../easel/ui/AbstractWidget.html#cancelMovementQueueForAllChildren-boolean-">cancelMovementQueueForAllChildren</a></code>&nbsp;in class&nbsp;<code><a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui">AbstractWidget</a>&lt;T extends easel.ui.layouts.AbstractOneDimensionalLayout&lt;T&gt;&gt;</code></dd>
+</dl>
+</li>
+</ul>
+<a name="iterator--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>iterator</h4>
+<pre>public&nbsp;java.util.stream.Stream&lt;<a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui">AbstractWidget</a>&gt;&nbsp;iterator()</pre>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a stream of all children currently handled by this widget, from top to bottom (or left to right)</dd>
+</dl>
+</li>
+</ul>
+<a name="iteratorOfType-java.lang.Class-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>iteratorOfType</h4>
+<pre>public&nbsp;&lt;T&gt;&nbsp;java.util.stream.Stream&lt;T&gt;&nbsp;iteratorOfType(java.lang.Class&lt;T&gt;&nbsp;clz)</pre>
+<div class="block">A stream of children handled by this widget who are of the specific type, for convenience purposes. Follows the same top to bottom / left to right ordering of the regular iterator. If you know you've built the layout with all objects of a particular type, you can quickly recover them all into a stream that remembers the type. This has a slight performance penalty over <a href="../../../easel/ui/layouts/HorizontalLayout.html#iterator--"><code>iterator()</code></a> due to checking each child against the type for safe casts, but the resulting stream will be properly typed to make it easier to work with. Children managed by this layout who are not of the given type will not be included in the stream, so be wary if using this variant of the iterator.</div>
+<dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>T</code> - the type of child to extract</dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>clz</code> - the class for the type</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a stream of children who fit the given type</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../easel/ui/layouts/HorizontalLayout.html#iterator--"><code>iterator()</code></a></dd>
 </dl>
 </li>
 </ul>

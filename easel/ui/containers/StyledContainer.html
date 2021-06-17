@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9,"i15":9,"i16":9,"i17":9,"i18":9,"i19":9,"i20":9,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li>Prev&nbsp;Class</li>
+<li><a href="../../../easel/ui/containers/MoveContainer.html" title="class in easel.ui.containers"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../easel/ui/containers/SwapContainer.html" title="class in easel.ui.containers"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -114,6 +114,27 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public class <span class="typeNameLabel">StyledContainer</span>
 extends <a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui">AbstractWidget</a>&lt;<a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>&gt;</pre>
+<div class="block"><p>
+ A container with a nice textured background and borders. Contains some helpers for making it have a nice header and for scaling everything to fit the given contents. Like layouts or other containers: anchoring, rendering, updates and the other usual suspects will be passed down the hierarchy, so calling them once on the container itself will be sufficient to handle the content and header widgets managed by this container. StyledContainers work nicely with <a href="../../../easel/ui/containers/MoveContainer.html" title="class in easel.ui.containers"><code>MoveContainer</code></a>s, and are designed as a "super" tooltip to give the base game tooltips a bit more flexibility. They can also be used as larger screens as well.
+ </p>
+ <p>
+ Example use:
+ </p>
+ <pre>
+ <code>
+ StyledContainer c = new StyledContainer(500, 500)
+     .withHeader("Title", "Subtitle")
+     .withHeaderAnchor(AnchorPosition.LEFT_CENTER)
+     .withHeaderColor(EaselColors.HEADER_PURPLE())
+     .withContent(
+         new VerticalLayout(20)
+             .withChild(new Label("Content One"))
+             .withChild(new Label("Content Two"))
+     )
+     .scaleToContent()
+     .anchoredCenteredOnScreen();
+ </code>
+ </pre></div>
 </li>
 </ul>
 </div>
@@ -148,7 +169,9 @@ extends <a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui
 </tr>
 <tr class="altColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#StyledContainer-float-float-">StyledContainer</a></span>(float&nbsp;width,
-               float&nbsp;height)</code>&nbsp;</td>
+               float&nbsp;height)</code>
+<div class="block">Constructs a new styled container with the given dimensions.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -160,7 +183,7 @@ extends <a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -170,86 +193,228 @@ extends <a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#anchoredAt-float-float-easel.ui.AnchorPosition-easel.ui.InterpolationSpeed-">anchoredAt</a></span>(float&nbsp;x,
           float&nbsp;y,
           <a href="../../../easel/ui/AnchorPosition.html" title="enum in easel.ui">AnchorPosition</a>&nbsp;anchorPosition,
-          <a href="../../../easel/ui/InterpolationSpeed.html" title="enum in easel.ui">InterpolationSpeed</a>&nbsp;withDelay)</code>
+          <a href="../../../easel/ui/InterpolationSpeed.html" title="enum in easel.ui">InterpolationSpeed</a>&nbsp;movementSpeed)</code>
 <div class="block">
  Moves the widget towards a specific spot.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#cancelMovementQueueForAllChildren-boolean-">cancelMovementQueueForAllChildren</a></span>(boolean&nbsp;shouldTryAndResolveOneLastTime)</code>&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>float</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#getContentHeight--">getContentHeight</a></span>()</code>
 <div class="block">The internal content height of the widget (excludes margins).</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>float</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#getContentWidth--">getContentWidth</a></span>()</code>
 <div class="block">The internal content width of the widget (excludes margins).</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#renderWidget-com.badlogic.gdx.graphics.g2d.SpriteBatch-">renderWidget</a></span>(com.badlogic.gdx.graphics.g2d.SpriteBatch&nbsp;sb)</code>
 <div class="block">
  Custom widgets should implement this method for rendering.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
-<td class="colFirst"><code><a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#scaleToContent--">scaleToContent</a></span>()</code>&nbsp;</td>
-</tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#scaleToContentHeight--">scaleToContentHeight</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#scaleToContent--">scaleToContent</a></span>()</code>
+<div class="block">Automatically scale the container to fit the main contents.</div>
+</td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#scaleToContentWidth--">scaleToContentWidth</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#scaleToContentHeight--">scaleToContentHeight</a></span>()</code>
+<div class="block">Automatically scale the container to fit its main content (and header) height.</div>
+</td>
 </tr>
 <tr id="i7" class="rowColor">
+<td class="colFirst"><code><a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#scaleToContentWidth--">scaleToContentWidth</a></span>()</code>
+<div class="block">Automatically scale the container to fit its main content (and header) width.</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#setChildrenDelayedMovement-float-float-easel.ui.InterpolationSpeed-long-">setChildrenDelayedMovement</a></span>(float&nbsp;deltaX,
+                          float&nbsp;deltaY,
+                          <a href="../../../easel/ui/InterpolationSpeed.html" title="enum in easel.ui">InterpolationSpeed</a>&nbsp;movementSpeed,
+                          long&nbsp;startingTimeMillis)</code>
+<div class="block">For use with <a href="../../../easel/ui/AbstractWidget.html#delayedTranslate-float-float-easel.ui.InterpolationSpeed-long-"><code>AbstractWidget.delayedTranslate(float, float, InterpolationSpeed, long)</code></a>.</div>
+</td>
+</tr>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#syncContainerHeights-boolean-java.util.List-">syncContainerHeights</a></span>(boolean&nbsp;scaleToContentFirst,
+                    java.util.List&lt;<a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>&gt;&nbsp;containers)</code>
+<div class="block">See <a href="../../../easel/ui/containers/StyledContainer.html#syncContainerHeights-boolean-java.util.stream.Stream-"><code>syncContainerHeights(boolean, Stream)</code></a>.</div>
+</td>
+</tr>
+<tr id="i10" class="altColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#syncContainerHeights-boolean-java.util.stream.Stream-">syncContainerHeights</a></span>(boolean&nbsp;scaleToContentFirst,
+                    java.util.stream.Stream&lt;<a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>&gt;&nbsp;containers)</code>
+<div class="block">Makes all containers share the height of the tallest container.</div>
+</td>
+</tr>
+<tr id="i11" class="rowColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#syncContainerHeights-boolean-easel.ui.containers.StyledContainer...-">syncContainerHeights</a></span>(boolean&nbsp;scaleToContentFirst,
+                    <a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>...&nbsp;containers)</code>
+<div class="block">See <a href="../../../easel/ui/containers/StyledContainer.html#syncContainerHeights-boolean-java.util.stream.Stream-"><code>syncContainerHeights(boolean, Stream)</code></a>.</div>
+</td>
+</tr>
+<tr id="i12" class="altColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#syncContainerHeights-java.util.List-">syncContainerHeights</a></span>(java.util.List&lt;<a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>&gt;&nbsp;containers)</code>
+<div class="block">See <a href="../../../easel/ui/containers/StyledContainer.html#syncContainerHeights-boolean-java.util.stream.Stream-"><code>syncContainerHeights(boolean, Stream)</code></a>.</div>
+</td>
+</tr>
+<tr id="i13" class="rowColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#syncContainerHeights-java.util.stream.Stream-">syncContainerHeights</a></span>(java.util.stream.Stream&lt;<a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>&gt;&nbsp;containers)</code>
+<div class="block">See <a href="../../../easel/ui/containers/StyledContainer.html#syncContainerHeights-boolean-java.util.stream.Stream-"><code>syncContainerHeights(boolean, Stream)</code></a>.</div>
+</td>
+</tr>
+<tr id="i14" class="altColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#syncContainerHeights-easel.ui.containers.StyledContainer...-">syncContainerHeights</a></span>(<a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>...&nbsp;containers)</code>
+<div class="block">See <a href="../../../easel/ui/containers/StyledContainer.html#syncContainerHeights-boolean-java.util.stream.Stream-"><code>syncContainerHeights(boolean, Stream)</code></a>.</div>
+</td>
+</tr>
+<tr id="i15" class="rowColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#syncContainerWidths-boolean-java.util.List-">syncContainerWidths</a></span>(boolean&nbsp;scaleToContentFirst,
+                   java.util.List&lt;<a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>&gt;&nbsp;containers)</code>
+<div class="block">See <a href="../../../easel/ui/containers/StyledContainer.html#syncContainerWidths-boolean-java.util.stream.Stream-"><code>syncContainerWidths(boolean, Stream)</code></a></div>
+</td>
+</tr>
+<tr id="i16" class="altColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#syncContainerWidths-boolean-java.util.stream.Stream-">syncContainerWidths</a></span>(boolean&nbsp;scaleToContentFirst,
+                   java.util.stream.Stream&lt;<a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>&gt;&nbsp;containers)</code>
+<div class="block">
+ Makes all StyledContainers in the stream share the width of the widest one.</div>
+</td>
+</tr>
+<tr id="i17" class="rowColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#syncContainerWidths-boolean-easel.ui.containers.StyledContainer...-">syncContainerWidths</a></span>(boolean&nbsp;scaleToContentFirst,
+                   <a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>...&nbsp;containers)</code>
+<div class="block">See <a href="../../../easel/ui/containers/StyledContainer.html#syncContainerWidths-boolean-java.util.stream.Stream-"><code>syncContainerWidths(boolean, Stream)</code></a></div>
+</td>
+</tr>
+<tr id="i18" class="altColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#syncContainerWidths-java.util.List-">syncContainerWidths</a></span>(java.util.List&lt;<a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>&gt;&nbsp;containers)</code>
+<div class="block">See <a href="../../../easel/ui/containers/StyledContainer.html#syncContainerWidths-boolean-java.util.stream.Stream-"><code>syncContainerWidths(boolean, Stream)</code></a>.</div>
+</td>
+</tr>
+<tr id="i19" class="rowColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#syncContainerWidths-java.util.stream.Stream-">syncContainerWidths</a></span>(java.util.stream.Stream&lt;<a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>&gt;&nbsp;containers)</code>
+<div class="block">See <a href="../../../easel/ui/containers/StyledContainer.html#syncContainerWidths-boolean-java.util.stream.Stream-"><code>syncContainerWidths(boolean, Stream)</code></a>.</div>
+</td>
+</tr>
+<tr id="i20" class="altColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#syncContainerWidths-easel.ui.containers.StyledContainer...-">syncContainerWidths</a></span>(<a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>...&nbsp;containers)</code>
+<div class="block">See <a href="../../../easel/ui/containers/StyledContainer.html#syncContainerWidths-boolean-java.util.stream.Stream-"><code>syncContainerWidths(boolean, Stream)</code></a>.</div>
+</td>
+</tr>
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#updateWidget--">updateWidget</a></span>()</code>
 <div class="block">Required for interactive components.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code><a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#withBaseColor-com.badlogic.gdx.graphics.Color-">withBaseColor</a></span>(com.badlogic.gdx.graphics.Color&nbsp;baseColor)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#withBaseColor-com.badlogic.gdx.graphics.Color-">withBaseColor</a></span>(com.badlogic.gdx.graphics.Color&nbsp;baseColor)</code>
+<div class="block">The background color of the entire container texture.</div>
+</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i23" class="rowColor">
 <td class="colFirst"><code><a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#withContent-easel.ui.AbstractWidget-boolean-">withContent</a></span>(<a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui">AbstractWidget</a>&nbsp;content,
-           boolean&nbsp;autoAddMargins)</code>&nbsp;</td>
+           boolean&nbsp;autoAddMargins)</code>
+<div class="block">Set the main content of this container.</div>
+</td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i24" class="altColor">
 <td class="colFirst"><code><a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#withContentAnchor-easel.ui.AnchorPosition-">withContentAnchor</a></span>(<a href="../../../easel/ui/AnchorPosition.html" title="enum in easel.ui">AnchorPosition</a>&nbsp;contentAnchor)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#withContentAnchor-easel.ui.AnchorPosition-">withContentAnchor</a></span>(<a href="../../../easel/ui/AnchorPosition.html" title="enum in easel.ui">AnchorPosition</a>&nbsp;contentAnchor)</code>
+<div class="block">Sets the position of the main contents inside the bottom region.</div>
+</td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i25" class="rowColor">
+<td class="colFirst"><code><a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#withDimensions-float-float-">withDimensions</a></span>(float&nbsp;newWidth,
+              float&nbsp;newHeight)</code>
+<div class="block">Set new dimensions for the full container.</div>
+</td>
+</tr>
+<tr id="i26" class="altColor">
 <td class="colFirst"><code><a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#withHeader-easel.ui.AbstractWidget-boolean-">withHeader</a></span>(<a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui">AbstractWidget</a>&nbsp;customHeader,
-          boolean&nbsp;autoAddMargins)</code>&nbsp;</td>
+          boolean&nbsp;autoAddMargins)</code>
+<div class="block">Add a custom child widget to serve as this containers header.</div>
+</td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i27" class="rowColor">
 <td class="colFirst"><code><a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#withHeader-java.lang.String-">withHeader</a></span>(java.lang.String&nbsp;title)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#withHeader-java.lang.String-">withHeader</a></span>(java.lang.String&nbsp;title)</code>
+<div class="block">Add a single-line title to this container with the given text.</div>
+</td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i28" class="altColor">
 <td class="colFirst"><code><a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#withHeader-java.lang.String-java.lang.String-">withHeader</a></span>(java.lang.String&nbsp;title,
-          java.lang.String&nbsp;subtitle)</code>&nbsp;</td>
+          java.lang.String&nbsp;subtitle)</code>
+<div class="block">Add a double-line title/subtitle to this container with the given text.</div>
+</td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i29" class="rowColor">
 <td class="colFirst"><code><a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#withHeaderAnchor-easel.ui.AnchorPosition-">withHeaderAnchor</a></span>(<a href="../../../easel/ui/AnchorPosition.html" title="enum in easel.ui">AnchorPosition</a>&nbsp;headerAnchor)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#withHeaderAnchor-easel.ui.AnchorPosition-">withHeaderAnchor</a></span>(<a href="../../../easel/ui/AnchorPosition.html" title="enum in easel.ui">AnchorPosition</a>&nbsp;headerAnchor)</code>
+<div class="block">Sets the position of the header contents inside the header region.</div>
+</td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i30" class="altColor">
 <td class="colFirst"><code><a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#withHeaderColor-com.badlogic.gdx.graphics.Color-">withHeaderColor</a></span>(com.badlogic.gdx.graphics.Color&nbsp;headerColor)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#withHeaderColor-com.badlogic.gdx.graphics.Color-">withHeaderColor</a></span>(com.badlogic.gdx.graphics.Color&nbsp;headerColor)</code>
+<div class="block">The background color of the header, if it exists (use with one of the header builder functions: <a href="../../../easel/ui/containers/StyledContainer.html#withHeader-java.lang.String-"><code>withHeader(String)</code></a> etc.).</div>
+</td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i31" class="rowColor">
 <td class="colFirst"><code><a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#withTrimColor-com.badlogic.gdx.graphics.Color-">withTrimColor</a></span>(com.badlogic.gdx.graphics.Color&nbsp;trimColor)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#withHeight-float-">withHeight</a></span>(float&nbsp;newHeight)</code>
+<div class="block">Set the new height of the full container to a new value Requires re-anchoring.</div>
+</td>
+</tr>
+<tr id="i32" class="altColor">
+<td class="colFirst"><code><a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#withShadows-boolean-">withShadows</a></span>(boolean&nbsp;enabled)</code>
+<div class="block">Set whether a drop shadow is rendered underneath the container.</div>
+</td>
+</tr>
+<tr id="i33" class="rowColor">
+<td class="colFirst"><code><a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#withTrimColors-com.badlogic.gdx.graphics.Color-com.badlogic.gdx.graphics.Color-">withTrimColors</a></span>(com.badlogic.gdx.graphics.Color&nbsp;trimColor,
+              com.badlogic.gdx.graphics.Color&nbsp;trimHighlightColor)</code>
+<div class="block">The trim colors of the entire container texture (for the outermost borders).</div>
+</td>
+</tr>
+<tr id="i34" class="altColor">
+<td class="colFirst"><code><a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../easel/ui/containers/StyledContainer.html#withWidth-float-">withWidth</a></span>(float&nbsp;newWidth)</code>
+<div class="block">Set the new width of the full container to a new value.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -257,7 +422,7 @@ extends <a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;easel.ui.<a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui">AbstractWidget</a></h3>
-<code><a href="../../../easel/ui/AbstractWidget.html#anchoredAt-float-float-easel.ui.AnchorPosition-">anchoredAt</a>, <a href="../../../easel/ui/AbstractWidget.html#anchoredAt-float-float-easel.ui.AnchorPosition-float-">anchoredAt</a>, <a href="../../../easel/ui/AbstractWidget.html#anchoredAt-float-float-easel.ui.AnchorPosition-easel.ui.InterpolationSpeed-float-">anchoredAt</a>, <a href="../../../easel/ui/AbstractWidget.html#anchoredCenteredOnMouse--">anchoredCenteredOnMouse</a>, <a href="../../../easel/ui/AbstractWidget.html#anchoredCenteredOnMouse-float-">anchoredCenteredOnMouse</a>, <a href="../../../easel/ui/AbstractWidget.html#anchoredCenteredOnMouse-float-float-easel.ui.AnchorPosition-">anchoredCenteredOnMouse</a>, <a href="../../../easel/ui/AbstractWidget.html#anchoredCenteredOnMouse-float-float-easel.ui.AnchorPosition-float-">anchoredCenteredOnMouse</a>, <a href="../../../easel/ui/AbstractWidget.html#anchoredCenteredOnScreen--">anchoredCenteredOnScreen</a>, <a href="../../../easel/ui/AbstractWidget.html#anchoredCenteredOnScreen-easel.ui.InterpolationSpeed-">anchoredCenteredOnScreen</a>, <a href="../../../easel/ui/AbstractWidget.html#getBottom--">getBottom</a>, <a href="../../../easel/ui/AbstractWidget.html#getContentBottom--">getContentBottom</a>, <a href="../../../easel/ui/AbstractWidget.html#getContentCenterX--">getContentCenterX</a>, <a href="../../../easel/ui/AbstractWidget.html#getContentCenterY--">getContentCenterY</a>, <a href="../../../easel/ui/AbstractWidget.html#getContentLeft--">getContentLeft</a>, <a href="../../../easel/ui/AbstractWidget.html#getContentRight--">getContentRight</a>, <a href="../../../easel/ui/AbstractWidget.html#getContentTop--">getContentTop</a>, <a href="../../../easel/ui/AbstractWidget.html#getHeight--">getHeight</a>, <a href="../../../easel/ui/AbstractWidget.html#getLeft--">getLeft</a>, <a href="../../../easel/ui/AbstractWidget.html#getRight--">getRight</a>, <a href="../../../easel/ui/AbstractWidget.html#getTop--">getTop</a>, <a href="../../../easel/ui/AbstractWidget.html#getWidth--">getWidth</a>, <a href="../../../easel/ui/AbstractWidget.html#hide--">hide</a>, <a href="../../../easel/ui/AbstractWidget.html#initializeInteractivity--">initializeInteractivity</a>, <a href="../../../easel/ui/AbstractWidget.html#makeMovable--">makeMovable</a>, <a href="../../../easel/ui/AbstractWidget.html#moveTowardsTarget--">moveTowardsTarget</a>, <a href="../../../easel/ui/AbstractWidget.html#onLeftClick-java.util.function.Consumer-">onLeftClick</a>, <a href="../../../easel/ui/AbstractWidget.html#onMouseEnter-java.util.function.Consumer-">onMouseEnter</a>, <a href="../../../easel/ui/AbstractWidget.html#onMouseLeave-java.util.function.Consumer-">onMouseLeave</a>, <a href="../../../easel/ui/AbstractWidget.html#onRightClick-java.util.function.Consumer-">onRightClick</a>, <a href="../../../easel/ui/AbstractWidget.html#refreshAnchor--">refreshAnchor</a>, <a href="../../../easel/ui/AbstractWidget.html#render-com.badlogic.gdx.graphics.g2d.SpriteBatch-">render</a>, <a href="../../../easel/ui/AbstractWidget.html#renderTopLevel-com.badlogic.gdx.graphics.g2d.SpriteBatch-">renderTopLevel</a>, <a href="../../../easel/ui/AbstractWidget.html#scaleHitboxToContent--">scaleHitboxToContent</a>, <a href="../../../easel/ui/AbstractWidget.html#show--">show</a>, <a href="../../../easel/ui/AbstractWidget.html#toString--">toString</a>, <a href="../../../easel/ui/AbstractWidget.html#update--">update</a>, <a href="../../../easel/ui/AbstractWidget.html#updateInteractivity--">updateInteractivity</a>, <a href="../../../easel/ui/AbstractWidget.html#withMargins-float-">withMargins</a>, <a href="../../../easel/ui/AbstractWidget.html#withMargins-float-float-">withMargins</a>, <a href="../../../easel/ui/AbstractWidget.html#withMargins-float-float-float-float-">withMargins</a></code></li>
+<code><a href="../../../easel/ui/AbstractWidget.html#anchoredAt-float-float-easel.ui.AnchorPosition-">anchoredAt</a>, <a href="../../../easel/ui/AbstractWidget.html#anchoredAtClamped-float-float-easel.ui.AnchorPosition-float-">anchoredAtClamped</a>, <a href="../../../easel/ui/AbstractWidget.html#anchoredAtClamped-float-float-easel.ui.AnchorPosition-easel.ui.InterpolationSpeed-float-">anchoredAtClamped</a>, <a href="../../../easel/ui/AbstractWidget.html#anchoredCenteredOnMouse--">anchoredCenteredOnMouse</a>, <a href="../../../easel/ui/AbstractWidget.html#anchoredCenteredOnMouse-float-float-easel.ui.AnchorPosition-">anchoredCenteredOnMouse</a>, <a href="../../../easel/ui/AbstractWidget.html#anchoredCenteredOnMouseClamped-float-">anchoredCenteredOnMouseClamped</a>, <a href="../../../easel/ui/AbstractWidget.html#anchoredCenteredOnMouseClamped-float-float-easel.ui.AnchorPosition-float-">anchoredCenteredOnMouseClamped</a>, <a href="../../../easel/ui/AbstractWidget.html#anchoredCenteredOnScreen--">anchoredCenteredOnScreen</a>, <a href="../../../easel/ui/AbstractWidget.html#anchoredCenteredOnScreen-easel.ui.InterpolationSpeed-">anchoredCenteredOnScreen</a>, <a href="../../../easel/ui/AbstractWidget.html#cancelMovementQueue-boolean-">cancelMovementQueue</a>, <a href="../../../easel/ui/AbstractWidget.html#delayedTranslate-float-float-easel.ui.InterpolationSpeed-long-">delayedTranslate</a>, <a href="../../../easel/ui/AbstractWidget.html#getBottom--">getBottom</a>, <a href="../../../easel/ui/AbstractWidget.html#getContentBottom--">getContentBottom</a>, <a href="../../../easel/ui/AbstractWidget.html#getContentCenterX--">getContentCenterX</a>, <a href="../../../easel/ui/AbstractWidget.html#getContentCenterY--">getContentCenterY</a>, <a href="../../../easel/ui/AbstractWidget.html#getContentLeft--">getContentLeft</a>, <a href="../../../easel/ui/AbstractWidget.html#getContentRight--">getContentRight</a>, <a href="../../../easel/ui/AbstractWidget.html#getContentTop--">getContentTop</a>, <a href="../../../easel/ui/AbstractWidget.html#getHeight--">getHeight</a>, <a href="../../../easel/ui/AbstractWidget.html#getLeft--">getLeft</a>, <a href="../../../easel/ui/AbstractWidget.html#getRight--">getRight</a>, <a href="../../../easel/ui/AbstractWidget.html#getTop--">getTop</a>, <a href="../../../easel/ui/AbstractWidget.html#getWidth--">getWidth</a>, <a href="../../../easel/ui/AbstractWidget.html#hide--">hide</a>, <a href="../../../easel/ui/AbstractWidget.html#initializeInteractivity--">initializeInteractivity</a>, <a href="../../../easel/ui/AbstractWidget.html#isMouseInBounds--">isMouseInBounds</a>, <a href="../../../easel/ui/AbstractWidget.html#isMouseInContentBounds--">isMouseInContentBounds</a>, <a href="../../../easel/ui/AbstractWidget.html#leftMouseClick--">leftMouseClick</a>, <a href="../../../easel/ui/AbstractWidget.html#mouseEnter--">mouseEnter</a>, <a href="../../../easel/ui/AbstractWidget.html#mouseLeave--">mouseLeave</a>, <a href="../../../easel/ui/AbstractWidget.html#onLeftClick-java.util.function.Consumer-">onLeftClick</a>, <a href="../../../easel/ui/AbstractWidget.html#onMouseEnter-java.util.function.Consumer-">onMouseEnter</a>, <a href="../../../easel/ui/AbstractWidget.html#onMouseLeave-java.util.function.Consumer-">onMouseLeave</a>, <a href="../../../easel/ui/AbstractWidget.html#onRightClick-java.util.function.Consumer-">onRightClick</a>, <a href="../../../easel/ui/AbstractWidget.html#refreshAnchor--">refreshAnchor</a>, <a href="../../../easel/ui/AbstractWidget.html#render-com.badlogic.gdx.graphics.g2d.SpriteBatch-">render</a>, <a href="../../../easel/ui/AbstractWidget.html#renderTopLevel-com.badlogic.gdx.graphics.g2d.SpriteBatch-">renderTopLevel</a>, <a href="../../../easel/ui/AbstractWidget.html#resolveMovementQueue--">resolveMovementQueue</a>, <a href="../../../easel/ui/AbstractWidget.html#rightMouseClick--">rightMouseClick</a>, <a href="../../../easel/ui/AbstractWidget.html#scaleHitboxToContent--">scaleHitboxToContent</a>, <a href="../../../easel/ui/AbstractWidget.html#setAllDelayedMovement-float-float-easel.ui.InterpolationSpeed-long-">setAllDelayedMovement</a>, <a href="../../../easel/ui/AbstractWidget.html#show--">show</a>, <a href="../../../easel/ui/AbstractWidget.html#toString--">toString</a>, <a href="../../../easel/ui/AbstractWidget.html#translate-float-float-easel.ui.InterpolationSpeed-">translate</a>, <a href="../../../easel/ui/AbstractWidget.html#update--">update</a>, <a href="../../../easel/ui/AbstractWidget.html#updateInteractivity--">updateInteractivity</a>, <a href="../../../easel/ui/AbstractWidget.html#withMargins-float-">withMargins</a>, <a href="../../../easel/ui/AbstractWidget.html#withMargins-float-float-">withMargins</a>, <a href="../../../easel/ui/AbstractWidget.html#withMargins-float-float-float-float-">withMargins</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -288,6 +453,12 @@ extends <a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui
 <h4>StyledContainer</h4>
 <pre>public&nbsp;StyledContainer(float&nbsp;width,
                        float&nbsp;height)</pre>
+<div class="block">Constructs a new styled container with the given dimensions. These dimensions can be changed later (e.g. scaled to content with <a href="../../../easel/ui/containers/StyledContainer.html#scaleToContent--"><code>scaleToContent()</code></a> or resized manually with <a href="../../../easel/ui/containers/StyledContainer.html#withDimensions-float-float-"><code>withDimensions(float, float)</code></a>).</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>width</code> - the entire width of the container</dd>
+<dd><code>height</code> - the entire height of the container</dd>
+</dl>
 </li>
 </ul>
 </li>
@@ -305,6 +476,13 @@ extends <a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui
 <li class="blockList">
 <h4>withHeader</h4>
 <pre>public&nbsp;<a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>&nbsp;withHeader(java.lang.String&nbsp;title)</pre>
+<div class="block">Add a single-line title to this container with the given text. Header text position is affected by <a href="../../../easel/ui/containers/StyledContainer.html#withHeaderAnchor-easel.ui.AnchorPosition-"><code>withHeaderAnchor(AnchorPosition)</code></a>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>title</code> - the text to serve as the header</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this widget</dd>
+</dl>
 </li>
 </ul>
 <a name="withHeader-java.lang.String-java.lang.String-">
@@ -315,6 +493,14 @@ extends <a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui
 <h4>withHeader</h4>
 <pre>public&nbsp;<a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>&nbsp;withHeader(java.lang.String&nbsp;title,
                                   java.lang.String&nbsp;subtitle)</pre>
+<div class="block">Add a double-line title/subtitle to this container with the given text. Header text position is affected by <a href="../../../easel/ui/containers/StyledContainer.html#withHeaderAnchor-easel.ui.AnchorPosition-"><code>withHeaderAnchor(AnchorPosition)</code></a>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>title</code> - the text to serve as the header title</dd>
+<dd><code>subtitle</code> - the text to serve as the header subtitle</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this widget</dd>
+</dl>
 </li>
 </ul>
 <a name="withHeader-easel.ui.AbstractWidget-boolean-">
@@ -325,6 +511,14 @@ extends <a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui
 <h4>withHeader</h4>
 <pre>public&nbsp;<a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>&nbsp;withHeader(<a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui">AbstractWidget</a>&nbsp;customHeader,
                                   boolean&nbsp;autoAddMargins)</pre>
+<div class="block">Add a custom child widget to serve as this containers header. Header position is affected by <a href="../../../easel/ui/containers/StyledContainer.html#withHeaderAnchor-easel.ui.AnchorPosition-"><code>withHeaderAnchor(AnchorPosition)</code></a>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>customHeader</code> - the widget which will sit in the header region (which automatically scales to surround this custom header)</dd>
+<dd><code>autoAddMargins</code> - if true, will call <a href="../../../easel/ui/AbstractWidget.html#withMargins-float-float-"><code>AbstractWidget.withMargins(float, float)</code></a> on the <code>customHeader</code> with some suggested defaults (the header needs some sort of margins to not touch the borders of the container)</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this widget</dd>
+</dl>
 </li>
 </ul>
 <a name="withHeaderColor-com.badlogic.gdx.graphics.Color-">
@@ -334,6 +528,13 @@ extends <a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui
 <li class="blockList">
 <h4>withHeaderColor</h4>
 <pre>public&nbsp;<a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>&nbsp;withHeaderColor(com.badlogic.gdx.graphics.Color&nbsp;headerColor)</pre>
+<div class="block">The background color of the header, if it exists (use with one of the header builder functions: <a href="../../../easel/ui/containers/StyledContainer.html#withHeader-java.lang.String-"><code>withHeader(String)</code></a> etc.). The header colors can be picked from the <code>EaselColors.HEADER_</code> family of colors, such as <a href="../../../easel/utils/colors/EaselColors.html#HEADER_RED--"><code>EaselColors.HEADER_RED()</code></a>. These header colors were chosen since they can fit well with the default background and trim colors of the overall container, and will work with the default header text colors. If not set, defaults to <a href="../../../easel/utils/colors/EaselColors.html#HEADER_BLUE--"><code>EaselColors.HEADER_BLUE()</code></a>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>headerColor</code> - the desired color of the header</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this widget</dd>
+</dl>
 </li>
 </ul>
 <a name="withBaseColor-com.badlogic.gdx.graphics.Color-">
@@ -343,15 +544,31 @@ extends <a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui
 <li class="blockList">
 <h4>withBaseColor</h4>
 <pre>public&nbsp;<a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>&nbsp;withBaseColor(com.badlogic.gdx.graphics.Color&nbsp;baseColor)</pre>
+<div class="block">The background color of the entire container texture. Defaults to <a href="../../../easel/utils/colors/EaselColors.html#TOOLTIP_BASE--"><code>EaselColors.TOOLTIP_BASE()</code></a> if not set.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>baseColor</code> - the new background color</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this widget</dd>
+</dl>
 </li>
 </ul>
-<a name="withTrimColor-com.badlogic.gdx.graphics.Color-">
+<a name="withTrimColors-com.badlogic.gdx.graphics.Color-com.badlogic.gdx.graphics.Color-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>withTrimColor</h4>
-<pre>public&nbsp;<a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>&nbsp;withTrimColor(com.badlogic.gdx.graphics.Color&nbsp;trimColor)</pre>
+<h4>withTrimColors</h4>
+<pre>public&nbsp;<a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>&nbsp;withTrimColors(com.badlogic.gdx.graphics.Color&nbsp;trimColor,
+                                      com.badlogic.gdx.graphics.Color&nbsp;trimHighlightColor)</pre>
+<div class="block">The trim colors of the entire container texture (for the outermost borders). The styled container mimics some of the base game border style by having a regular trim color and a specific highlight color to contrast against it. Defaults to <a href="../../../easel/utils/colors/EaselColors.html#TOOLTIP_TRIM--"><code>EaselColors.TOOLTIP_TRIM()</code></a> and <a href="../../../easel/utils/colors/EaselColors.html#TOOLTIP_TRIM_HIGHLIGHT--"><code>EaselColors.TOOLTIP_TRIM_HIGHLIGHT()</code></a> if not set.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>trimColor</code> - the basic border color</dd>
+<dd><code>trimHighlightColor</code> - the highlight color for the border</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this widget</dd>
+</dl>
 </li>
 </ul>
 <a name="withHeaderAnchor-easel.ui.AnchorPosition-">
@@ -361,6 +578,13 @@ extends <a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui
 <li class="blockList">
 <h4>withHeaderAnchor</h4>
 <pre>public&nbsp;<a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>&nbsp;withHeaderAnchor(<a href="../../../easel/ui/AnchorPosition.html" title="enum in easel.ui">AnchorPosition</a>&nbsp;headerAnchor)</pre>
+<div class="block">Sets the position of the header contents inside the header region. Requires anchoring after calling this in order for the changes to take effect.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>headerAnchor</code> - where the header contents are anchored inside the header region</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this widget</dd>
+</dl>
 </li>
 </ul>
 <a name="withContentAnchor-easel.ui.AnchorPosition-">
@@ -370,6 +594,29 @@ extends <a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui
 <li class="blockList">
 <h4>withContentAnchor</h4>
 <pre>public&nbsp;<a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>&nbsp;withContentAnchor(<a href="../../../easel/ui/AnchorPosition.html" title="enum in easel.ui">AnchorPosition</a>&nbsp;contentAnchor)</pre>
+<div class="block">Sets the position of the main contents inside the bottom region. Requires anchoring afterwards for the changes to take effect.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>contentAnchor</code> - where the main contents are anchored in the bottom section of the container</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this widget</dd>
+</dl>
+</li>
+</ul>
+<a name="withShadows-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>withShadows</h4>
+<pre>public&nbsp;<a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>&nbsp;withShadows(boolean&nbsp;enabled)</pre>
+<div class="block">Set whether a drop shadow is rendered underneath the container. Defaults to false if not set, and recommended to not alter this manually. Toggled by <a href="../../../easel/ui/containers/MoveContainer.html" title="class in easel.ui.containers"><code>MoveContainer</code></a> when moving styled containers around to improve the aesthetics a bit.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>enabled</code> - if true, will render shadows beneath the entire widget</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this widget</dd>
+</dl>
 </li>
 </ul>
 <a name="withContent-easel.ui.AbstractWidget-boolean-">
@@ -380,6 +627,64 @@ extends <a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui
 <h4>withContent</h4>
 <pre>public&nbsp;<a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>&nbsp;withContent(<a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui">AbstractWidget</a>&nbsp;content,
                                    boolean&nbsp;autoAddMargins)</pre>
+<div class="block">Set the main content of this container. This gets rendered underneath the header (if it exists) and takes up the primary area of the container. The content itself is often a layout containing its own widget hierarchy. Like custom header widgets, this contains a <code>autoAddMargins</code> flag which can be used to automatically give the new content a reasonable set of default margins. Margins on the content widget itself are required for the content to not touch the sides of the container. Requires re-anchoring.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>content</code> - the main widget that is the focus of this container</dd>
+<dd><code>autoAddMargins</code> - if true, will call <a href="../../../easel/ui/AbstractWidget.html#withMargins-float-"><code>AbstractWidget.withMargins(float)</code></a> on the content widget with some suggested values</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this widget</dd>
+</dl>
+</li>
+</ul>
+<a name="withWidth-float-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>withWidth</h4>
+<pre>public&nbsp;<a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>&nbsp;withWidth(float&nbsp;newWidth)</pre>
+<div class="block">Set the new width of the full container to a new value. Requires re-anchoring.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>newWidth</code> - the new width</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this widget</dd>
+</dl>
+</li>
+</ul>
+<a name="withHeight-float-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>withHeight</h4>
+<pre>public&nbsp;<a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>&nbsp;withHeight(float&nbsp;newHeight)</pre>
+<div class="block">Set the new height of the full container to a new value Requires re-anchoring.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>newHeight</code> - the new height</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this widget</dd>
+</dl>
+</li>
+</ul>
+<a name="withDimensions-float-float-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>withDimensions</h4>
+<pre>public&nbsp;<a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>&nbsp;withDimensions(float&nbsp;newWidth,
+                                      float&nbsp;newHeight)</pre>
+<div class="block">Set new dimensions for the full container. Convenience for calling both <a href="../../../easel/ui/containers/StyledContainer.html#withWidth-float-"><code>withWidth(float)</code></a> and <a href="../../../easel/ui/containers/StyledContainer.html#withHeight-float-"><code>withHeight(float)</code></a> at the same time. Requires re-anchoring.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>newWidth</code> - the new width</dd>
+<dd><code>newHeight</code> - the new height</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this widget</dd>
+</dl>
 </li>
 </ul>
 <a name="scaleToContentWidth--">
@@ -389,6 +694,11 @@ extends <a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui
 <li class="blockList">
 <h4>scaleToContentWidth</h4>
 <pre>public&nbsp;<a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>&nbsp;scaleToContentWidth()</pre>
+<div class="block">Automatically scale the container to fit its main content (and header) width. Does nothing if no content widget has been set. Requires re-anchoring.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this widget</dd>
+</dl>
 </li>
 </ul>
 <a name="scaleToContentHeight--">
@@ -398,6 +708,11 @@ extends <a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui
 <li class="blockList">
 <h4>scaleToContentHeight</h4>
 <pre>public&nbsp;<a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>&nbsp;scaleToContentHeight()</pre>
+<div class="block">Automatically scale the container to fit its main content (and header) height. Does nothing if no content widget has been set. Requires re-anchoring.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this widget</dd>
+</dl>
 </li>
 </ul>
 <a name="scaleToContent--">
@@ -407,6 +722,246 @@ extends <a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui
 <li class="blockList">
 <h4>scaleToContent</h4>
 <pre>public&nbsp;<a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>&nbsp;scaleToContent()</pre>
+<div class="block">Automatically scale the container to fit the main contents. Calling this after setting up the container's content and headers is extremely common, as it scales the container itself to fit the widgets you've added.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this widget</dd>
+</dl>
+</li>
+</ul>
+<a name="syncContainerWidths-easel.ui.containers.StyledContainer...-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>syncContainerWidths</h4>
+<pre>public static&nbsp;void&nbsp;syncContainerWidths(<a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>...&nbsp;containers)</pre>
+<div class="block">See <a href="../../../easel/ui/containers/StyledContainer.html#syncContainerWidths-boolean-java.util.stream.Stream-"><code>syncContainerWidths(boolean, Stream)</code></a>. Will not automatically scale to content first.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>containers</code> - a variadic list of containers to scale</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../easel/ui/containers/StyledContainer.html#syncContainerWidths-boolean-java.util.stream.Stream-"><code>syncContainerWidths(boolean, Stream)</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="syncContainerWidths-java.util.stream.Stream-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>syncContainerWidths</h4>
+<pre>public static&nbsp;void&nbsp;syncContainerWidths(java.util.stream.Stream&lt;<a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>&gt;&nbsp;containers)</pre>
+<div class="block">See <a href="../../../easel/ui/containers/StyledContainer.html#syncContainerWidths-boolean-java.util.stream.Stream-"><code>syncContainerWidths(boolean, Stream)</code></a>. Will not automatically scale to content first.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>containers</code> - a stream of containers to scale</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../easel/ui/containers/StyledContainer.html#syncContainerWidths-boolean-java.util.stream.Stream-"><code>syncContainerWidths(boolean, Stream)</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="syncContainerWidths-java.util.List-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>syncContainerWidths</h4>
+<pre>public static&nbsp;void&nbsp;syncContainerWidths(java.util.List&lt;<a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>&gt;&nbsp;containers)</pre>
+<div class="block">See <a href="../../../easel/ui/containers/StyledContainer.html#syncContainerWidths-boolean-java.util.stream.Stream-"><code>syncContainerWidths(boolean, Stream)</code></a>. Will not automatically scale to content first.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>containers</code> - a list of containers to scale</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../easel/ui/containers/StyledContainer.html#syncContainerWidths-boolean-java.util.stream.Stream-"><code>syncContainerWidths(boolean, Stream)</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="syncContainerWidths-boolean-easel.ui.containers.StyledContainer...-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>syncContainerWidths</h4>
+<pre>public static&nbsp;void&nbsp;syncContainerWidths(boolean&nbsp;scaleToContentFirst,
+                                       <a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>...&nbsp;containers)</pre>
+<div class="block">See <a href="../../../easel/ui/containers/StyledContainer.html#syncContainerWidths-boolean-java.util.stream.Stream-"><code>syncContainerWidths(boolean, Stream)</code></a></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>scaleToContentFirst</code> - whether to call <a href="../../../easel/ui/containers/StyledContainer.html#scaleToContent--"><code>scaleToContent()</code></a> on each container first before scaling all widths to the maximum</dd>
+<dd><code>containers</code> - a variadic list of containers to scale</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../easel/ui/containers/StyledContainer.html#syncContainerWidths-boolean-java.util.stream.Stream-"><code>syncContainerWidths(boolean, Stream)</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="syncContainerWidths-boolean-java.util.stream.Stream-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>syncContainerWidths</h4>
+<pre>public static&nbsp;void&nbsp;syncContainerWidths(boolean&nbsp;scaleToContentFirst,
+                                       java.util.stream.Stream&lt;<a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>&gt;&nbsp;containers)</pre>
+<div class="block"><p>
+ Makes all StyledContainers in the stream share the width of the widest one. As this is a width altering function, each affected widget will require re-anchoring before being used. The <code>scaleToContentFirst</code> flag is mostly for convenience and if set, will call <a href="../../../easel/ui/containers/StyledContainer.html#scaleToContent--"><code>scaleToContent()</code></a> on all widgets before computing the the final new width.
+ </p>
+ <p>
+ An example use:
+ </p>
+ <pre>
+ <code>
+ // This is some layout which contains the StyledContainers as children:
+ layout = ...;
+
+ // We want to sync up all the containers to have the same width
+ // the first argument "true" simply calls .scaleToContent() on each container
+ // before computing the width to scale everything to
+ StyledContainer.syncContainerWidths(true, layout.iteratorOfType(StyledContainer.class));
+
+ // We've (probably) adjusted the dimensions of multiple styled containers, so be sure
+ // to reanchor everything affected. Since we've stored the containers in a layout, you
+ // can just perform your anchoring step on it now
+ layout.anchoredCenteredOnScreen();
+ </code>
+ </pre></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>scaleToContentFirst</code> - whether to call <a href="../../../easel/ui/containers/StyledContainer.html#scaleToContent--"><code>scaleToContent()</code></a> on each container first before scaling all widths to the maximum</dd>
+<dd><code>containers</code> - a stream of containers to scale</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../easel/ui/containers/StyledContainer.html#syncContainerHeights-boolean-java.util.stream.Stream-"><code>syncContainerHeights(boolean, Stream)</code></a>, 
+<a href="../../../easel/ui/containers/StyledContainer.html#syncContainerWidths-boolean-easel.ui.containers.StyledContainer...-"><code>syncContainerWidths(boolean, StyledContainer...)</code></a>, 
+<a href="../../../easel/ui/containers/StyledContainer.html#syncContainerWidths-boolean-java.util.List-"><code>syncContainerWidths(boolean, List)</code></a>, 
+<a href="../../../easel/ui/containers/StyledContainer.html#syncContainerWidths-java.util.stream.Stream-"><code>syncContainerWidths(Stream)</code></a>, 
+<a href="../../../easel/ui/containers/StyledContainer.html#syncContainerWidths-java.util.List-"><code>syncContainerWidths(List)</code></a>, 
+<a href="../../../easel/ui/containers/StyledContainer.html#syncContainerWidths-easel.ui.containers.StyledContainer...-"><code>syncContainerWidths(StyledContainer...)</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="syncContainerWidths-boolean-java.util.List-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>syncContainerWidths</h4>
+<pre>public static&nbsp;void&nbsp;syncContainerWidths(boolean&nbsp;scaleToContentFirst,
+                                       java.util.List&lt;<a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>&gt;&nbsp;containers)</pre>
+<div class="block">See <a href="../../../easel/ui/containers/StyledContainer.html#syncContainerWidths-boolean-java.util.stream.Stream-"><code>syncContainerWidths(boolean, Stream)</code></a></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>scaleToContentFirst</code> - whether to call <a href="../../../easel/ui/containers/StyledContainer.html#scaleToContent--"><code>scaleToContent()</code></a> on each container first before scaling all widths to the maximum</dd>
+<dd><code>containers</code> - a list of containers to scale</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../easel/ui/containers/StyledContainer.html#syncContainerWidths-boolean-java.util.stream.Stream-"><code>syncContainerWidths(boolean, Stream)</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="syncContainerHeights-easel.ui.containers.StyledContainer...-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>syncContainerHeights</h4>
+<pre>public static&nbsp;void&nbsp;syncContainerHeights(<a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>...&nbsp;containers)</pre>
+<div class="block">See <a href="../../../easel/ui/containers/StyledContainer.html#syncContainerHeights-boolean-java.util.stream.Stream-"><code>syncContainerHeights(boolean, Stream)</code></a>. Will not automatically scale to content first.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>containers</code> - a variadic list of containers to scale</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../easel/ui/containers/StyledContainer.html#syncContainerHeights-boolean-java.util.stream.Stream-"><code>syncContainerHeights(boolean, Stream)</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="syncContainerHeights-java.util.stream.Stream-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>syncContainerHeights</h4>
+<pre>public static&nbsp;void&nbsp;syncContainerHeights(java.util.stream.Stream&lt;<a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>&gt;&nbsp;containers)</pre>
+<div class="block">See <a href="../../../easel/ui/containers/StyledContainer.html#syncContainerHeights-boolean-java.util.stream.Stream-"><code>syncContainerHeights(boolean, Stream)</code></a>. Will not automatically scale to content first.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>containers</code> - a stream of containers to scale</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../easel/ui/containers/StyledContainer.html#syncContainerHeights-boolean-java.util.stream.Stream-"><code>syncContainerHeights(boolean, Stream)</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="syncContainerHeights-java.util.List-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>syncContainerHeights</h4>
+<pre>public static&nbsp;void&nbsp;syncContainerHeights(java.util.List&lt;<a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>&gt;&nbsp;containers)</pre>
+<div class="block">See <a href="../../../easel/ui/containers/StyledContainer.html#syncContainerHeights-boolean-java.util.stream.Stream-"><code>syncContainerHeights(boolean, Stream)</code></a>. Will not automatically scale to content first.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>containers</code> - a list of containers to scale</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../easel/ui/containers/StyledContainer.html#syncContainerHeights-boolean-java.util.stream.Stream-"><code>syncContainerHeights(boolean, Stream)</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="syncContainerHeights-boolean-easel.ui.containers.StyledContainer...-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>syncContainerHeights</h4>
+<pre>public static&nbsp;void&nbsp;syncContainerHeights(boolean&nbsp;scaleToContentFirst,
+                                        <a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>...&nbsp;containers)</pre>
+<div class="block">See <a href="../../../easel/ui/containers/StyledContainer.html#syncContainerHeights-boolean-java.util.stream.Stream-"><code>syncContainerHeights(boolean, Stream)</code></a>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>scaleToContentFirst</code> - whether to call <a href="../../../easel/ui/containers/StyledContainer.html#scaleToContent--"><code>scaleToContent()</code></a> on each container first before scaling all heights to the maximum</dd>
+<dd><code>containers</code> - a stream of containers to scale</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../easel/ui/containers/StyledContainer.html#syncContainerHeights-boolean-java.util.stream.Stream-"><code>syncContainerHeights(boolean, Stream)</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="syncContainerHeights-boolean-java.util.stream.Stream-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>syncContainerHeights</h4>
+<pre>public static&nbsp;void&nbsp;syncContainerHeights(boolean&nbsp;scaleToContentFirst,
+                                        java.util.stream.Stream&lt;<a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>&gt;&nbsp;containers)</pre>
+<div class="block">Makes all containers share the height of the tallest container. Not as common as <a href="../../../easel/ui/containers/StyledContainer.html#syncContainerWidths-boolean-java.util.stream.Stream-"><code>syncContainerWidths(boolean, Stream)</code></a>, but can be used in a similar manner.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>scaleToContentFirst</code> - whether to call <a href="../../../easel/ui/containers/StyledContainer.html#scaleToContent--"><code>scaleToContent()</code></a> on each container first before scaling all heights to the maximum</dd>
+<dd><code>containers</code> - a stream of containers to scale heights of</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../easel/ui/containers/StyledContainer.html#syncContainerWidths-boolean-java.util.stream.Stream-"><code>syncContainerWidths(boolean, Stream)</code></a>, 
+<a href="../../../easel/ui/containers/StyledContainer.html#syncContainerHeights-boolean-easel.ui.containers.StyledContainer...-"><code>syncContainerHeights(boolean, StyledContainer...)</code></a>, 
+<a href="../../../easel/ui/containers/StyledContainer.html#syncContainerHeights-boolean-java.util.List-"><code>syncContainerHeights(boolean, List)</code></a>, 
+<a href="../../../easel/ui/containers/StyledContainer.html#syncContainerHeights-java.util.stream.Stream-"><code>syncContainerHeights(Stream)</code></a>, 
+<a href="../../../easel/ui/containers/StyledContainer.html#syncContainerHeights-easel.ui.containers.StyledContainer...-"><code>syncContainerHeights(StyledContainer...)</code></a>, 
+<a href="../../../easel/ui/containers/StyledContainer.html#syncContainerHeights-java.util.List-"><code>syncContainerHeights(List)</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="syncContainerHeights-boolean-java.util.List-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>syncContainerHeights</h4>
+<pre>public static&nbsp;void&nbsp;syncContainerHeights(boolean&nbsp;scaleToContentFirst,
+                                        java.util.List&lt;<a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>&gt;&nbsp;containers)</pre>
+<div class="block">See <a href="../../../easel/ui/containers/StyledContainer.html#syncContainerHeights-boolean-java.util.stream.Stream-"><code>syncContainerHeights(boolean, Stream)</code></a>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>scaleToContentFirst</code> - whether to call <a href="../../../easel/ui/containers/StyledContainer.html#scaleToContent--"><code>scaleToContent()</code></a> on each container first before scaling all heights to the maximum</dd>
+<dd><code>containers</code> - a list of containers to scale</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../easel/ui/containers/StyledContainer.html#syncContainerHeights-boolean-java.util.stream.Stream-"><code>syncContainerHeights(boolean, Stream)</code></a></dd>
+</dl>
 </li>
 </ul>
 <a name="getContentWidth--">
@@ -458,7 +1013,7 @@ extends <a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui
 <pre>public&nbsp;<a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>&nbsp;anchoredAt(float&nbsp;x,
                                   float&nbsp;y,
                                   <a href="../../../easel/ui/AnchorPosition.html" title="enum in easel.ui">AnchorPosition</a>&nbsp;anchorPosition,
-                                  <a href="../../../easel/ui/InterpolationSpeed.html" title="enum in easel.ui">InterpolationSpeed</a>&nbsp;withDelay)</pre>
+                                  <a href="../../../easel/ui/InterpolationSpeed.html" title="enum in easel.ui">InterpolationSpeed</a>&nbsp;movementSpeed)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../easel/ui/AbstractWidget.html#anchoredAt-float-float-easel.ui.AnchorPosition-easel.ui.InterpolationSpeed-">AbstractWidget</a></code></span></div>
 <div class="block"><p>
  Moves the widget towards a specific spot. The <code>anchorPosition</code> defines the point on the widget that will be placed at the position <code>(x, y)</code>.
@@ -467,7 +1022,7 @@ extends <a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui
  For example, <code>anchoredAt(100, 200, AnchorPosition.LEFT_BOTTOM, InterpolationSpeed.FAST)</code> will set the bottom-left corner of the widget to 100 pixels from the left side of the screen and 200 pixels from the bottom of the screen. The widget then renders up and to the right of this point since we anchored at an <code>AnchorPosition.LEFT_BOTTOM</code>. As a second example, using <code>AnchorPosition.CENTER</code> ensures that <code>(x, y)</code> will be the center of the widget.
  </p>
  <p>
- The interpolation speed <code>withDelay</code> determines how quickly the widget moves to the target location. Using a speed other than <code>InterpolationSpeed.INSTANT</code> makes the widget move towards the desired position over the next few frames in a smoothly animated manner. For convenience since instant moving is often the desired effect, see <a href="../../../easel/ui/AbstractWidget.html#anchoredAt-float-float-easel.ui.AnchorPosition-"><code>AbstractWidget.anchoredAt(float, float, AnchorPosition)</code></a>.
+ The interpolation speed <code>movementSpeed</code> determines how quickly the widget moves to the target location. Using a speed other than <code>InterpolationSpeed.INSTANT</code> makes the widget move towards the desired position over the next few frames in a smoothly animated manner. For convenience since instant moving is often the desired effect, see <a href="../../../easel/ui/AbstractWidget.html#anchoredAt-float-float-easel.ui.AnchorPosition-"><code>AbstractWidget.anchoredAt(float, float, AnchorPosition)</code></a>.
  </p>
  <p>
  Note: you should always anchor at least once before rendering. For more dynamic widgets that move a lot (e.g. a tooltip dependent on the mouse cursor location using <code>InputHelper.mX</code> and <code>InputHelper.mY</code>), a general pattern is to call <code>anchoredAt</code> right before rendering in your main render function, e.g.:
@@ -485,13 +1040,49 @@ extends <a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui
 <dd><code>x</code> - the x position in pixels from the left edge of the screen</dd>
 <dd><code>y</code> - the y position in pixels from the bottom edge of the screen</dd>
 <dd><code>anchorPosition</code> - what piece of the widget will be moved to <code>(x, y)</code></dd>
-<dd><code>withDelay</code> - how quickly the widget will move towards the desired position</dd>
+<dd><code>movementSpeed</code> - how quickly the widget will move towards the desired position</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>this widget</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../easel/ui/AbstractWidget.html#anchoredAt-float-float-easel.ui.AnchorPosition-"><code>AbstractWidget.anchoredAt(float, float, AnchorPosition)</code></a>, 
-<a href="../../../easel/ui/AbstractWidget.html#anchoredAt-float-float-easel.ui.AnchorPosition-float-"><code>AbstractWidget.anchoredAt(float, float, AnchorPosition, float)</code></a>, 
-<a href="../../../easel/ui/AbstractWidget.html#anchoredAt-float-float-easel.ui.AnchorPosition-easel.ui.InterpolationSpeed-float-"><code>AbstractWidget.anchoredAt(float, float, AnchorPosition, InterpolationSpeed, float)</code></a></dd>
+<a href="../../../easel/ui/AbstractWidget.html#anchoredAtClamped-float-float-easel.ui.AnchorPosition-float-"><code>AbstractWidget.anchoredAtClamped(float, float, AnchorPosition, float)</code></a>, 
+<a href="../../../easel/ui/AbstractWidget.html#anchoredAtClamped-float-float-easel.ui.AnchorPosition-easel.ui.InterpolationSpeed-float-"><code>AbstractWidget.anchoredAtClamped(float, float, AnchorPosition, InterpolationSpeed, float)</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="cancelMovementQueueForAllChildren-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>cancelMovementQueueForAllChildren</h4>
+<pre>protected&nbsp;void&nbsp;cancelMovementQueueForAllChildren(boolean&nbsp;shouldTryAndResolveOneLastTime)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../easel/ui/AbstractWidget.html#cancelMovementQueueForAllChildren-boolean-">cancelMovementQueueForAllChildren</a></code>&nbsp;in class&nbsp;<code><a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui">AbstractWidget</a>&lt;<a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>&gt;</code></dd>
+</dl>
+</li>
+</ul>
+<a name="setChildrenDelayedMovement-float-float-easel.ui.InterpolationSpeed-long-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setChildrenDelayedMovement</h4>
+<pre>protected&nbsp;void&nbsp;setChildrenDelayedMovement(float&nbsp;deltaX,
+                                          float&nbsp;deltaY,
+                                          <a href="../../../easel/ui/InterpolationSpeed.html" title="enum in easel.ui">InterpolationSpeed</a>&nbsp;movementSpeed,
+                                          long&nbsp;startingTimeMillis)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../easel/ui/AbstractWidget.html#setChildrenDelayedMovement-float-float-easel.ui.InterpolationSpeed-long-">AbstractWidget</a></code></span></div>
+<div class="block">For use with <a href="../../../easel/ui/AbstractWidget.html#delayedTranslate-float-float-easel.ui.InterpolationSpeed-long-"><code>AbstractWidget.delayedTranslate(float, float, InterpolationSpeed, long)</code></a>. Make sure any widget with children (e.g. containers, layouts, etc.) overrides this function and calls <a href="../../../easel/ui/AbstractWidget.html#setAllDelayedMovement-float-float-easel.ui.InterpolationSpeed-long-"><code>AbstractWidget.setAllDelayedMovement(float, float, InterpolationSpeed, long)</code></a> using the input to this function on all direct descendants. This is required if you want to be able to use a delayed anchoredAt command on custom widgets.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../easel/ui/AbstractWidget.html#setChildrenDelayedMovement-float-float-easel.ui.InterpolationSpeed-long-">setChildrenDelayedMovement</a></code>&nbsp;in class&nbsp;<code><a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui">AbstractWidget</a>&lt;<a href="../../../easel/ui/containers/StyledContainer.html" title="class in easel.ui.containers">StyledContainer</a>&gt;</code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>deltaX</code> - how much movement horizontally</dd>
+<dd><code>deltaY</code> - how much movement vertically</dd>
+<dd><code>movementSpeed</code> - how fast the widget will move towards the target, once startingTimeMillis is reached (i.e. <code>System.currentTimeMillis()</code> is greater than or equal to this starting time)</dd>
+<dd><code>startingTimeMillis</code> - a time generated by an offset of <code>System.currentTimeMillis()</code>, determined by the original <a href="../../../easel/ui/AbstractWidget.html#delayedTranslate-float-float-easel.ui.InterpolationSpeed-long-"><code>AbstractWidget.delayedTranslate(float, float, InterpolationSpeed, long)</code></a> function that starts this chain</dd>
 </dl>
 </li>
 </ul>
@@ -561,7 +1152,7 @@ extends <a href="../../../easel/ui/AbstractWidget.html" title="class in easel.ui
 </div>
 <div class="subNav">
 <ul class="navList">
-<li>Prev&nbsp;Class</li>
+<li><a href="../../../easel/ui/containers/MoveContainer.html" title="class in easel.ui.containers"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../easel/ui/containers/SwapContainer.html" title="class in easel.ui.containers"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">

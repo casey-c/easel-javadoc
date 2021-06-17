@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":10,"i2":10,"i3":10};
+var methods = {"i0":9,"i1":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -107,13 +107,13 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd>basemod.interfaces.ISubscriber, basemod.interfaces.PostInitializeSubscriber, basemod.interfaces.PostUpdateSubscriber, basemod.interfaces.RenderSubscriber</dd>
+<dd>basemod.interfaces.ISubscriber, basemod.interfaces.PostInitializeSubscriber</dd>
 </dl>
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">Easel</span>
 extends java.lang.Object
-implements basemod.interfaces.PostInitializeSubscriber, basemod.interfaces.RenderSubscriber, basemod.interfaces.PostUpdateSubscriber</pre>
+implements basemod.interfaces.PostInitializeSubscriber</pre>
 </li>
 </ul>
 </div>
@@ -175,14 +175,6 @@ implements basemod.interfaces.PostInitializeSubscriber, basemod.interfaces.Rende
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../easel/Easel.html#receivePostInitialize--">receivePostInitialize</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../easel/Easel.html#receivePostUpdate--">receivePostUpdate</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../easel/Easel.html#receiveRender-com.badlogic.gdx.graphics.g2d.SpriteBatch-">receiveRender</a></span>(com.badlogic.gdx.graphics.g2d.SpriteBatch&nbsp;sb)</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -252,39 +244,13 @@ implements basemod.interfaces.PostInitializeSubscriber, basemod.interfaces.Rende
 <a name="receivePostInitialize--">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>receivePostInitialize</h4>
 <pre>public&nbsp;void&nbsp;receivePostInitialize()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>receivePostInitialize</code>&nbsp;in interface&nbsp;<code>basemod.interfaces.PostInitializeSubscriber</code></dd>
-</dl>
-</li>
-</ul>
-<a name="receiveRender-com.badlogic.gdx.graphics.g2d.SpriteBatch-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>receiveRender</h4>
-<pre>public&nbsp;void&nbsp;receiveRender(com.badlogic.gdx.graphics.g2d.SpriteBatch&nbsp;sb)</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code>receiveRender</code>&nbsp;in interface&nbsp;<code>basemod.interfaces.RenderSubscriber</code></dd>
-</dl>
-</li>
-</ul>
-<a name="receivePostUpdate--">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>receivePostUpdate</h4>
-<pre>public&nbsp;void&nbsp;receivePostUpdate()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code>receivePostUpdate</code>&nbsp;in interface&nbsp;<code>basemod.interfaces.PostUpdateSubscriber</code></dd>
 </dl>
 </li>
 </ul>

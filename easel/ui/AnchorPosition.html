@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":9,"i13":9,"i14":9,"i15":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":9,"i17":9,"i18":9,"i19":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -186,94 +186,128 @@ extends java.lang.Enum&lt;<a href="../../easel/ui/AnchorPosition.html" title="en
 </td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>static float</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../easel/ui/AnchorPosition.html#deltaX-float-easel.ui.AnchorPosition-float-easel.ui.AnchorPosition-float-">deltaX</a></span>(float&nbsp;startX,
+      <a href="../../easel/ui/AnchorPosition.html" title="enum in easel.ui">AnchorPosition</a>&nbsp;startAnchor,
+      float&nbsp;newX,
+      <a href="../../easel/ui/AnchorPosition.html" title="enum in easel.ui">AnchorPosition</a>&nbsp;newAnchor,
+      float&nbsp;width)</code>
+<div class="block">Determines how much the coordinates move horizontally from a starting point to the ending point.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>static float</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../easel/ui/AnchorPosition.html#deltaY-float-easel.ui.AnchorPosition-float-easel.ui.AnchorPosition-float-">deltaY</a></span>(float&nbsp;startY,
+      <a href="../../easel/ui/AnchorPosition.html" title="enum in easel.ui">AnchorPosition</a>&nbsp;startAnchor,
+      float&nbsp;newY,
+      <a href="../../easel/ui/AnchorPosition.html" title="enum in easel.ui">AnchorPosition</a>&nbsp;newAnchor,
+      float&nbsp;height)</code>
+<div class="block">Determines how much the coordinates move vertically from a starting point to the ending point.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>float</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../easel/ui/AnchorPosition.html#getBottom-float-float-">getBottom</a></span>(float&nbsp;y,
+         float&nbsp;height)</code>
+<div class="block">Return the bottom-most point of a region with the given height where y is a point inside that region determined by this anchor.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>float</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../easel/ui/AnchorPosition.html#getLeft-float-float-">getLeft</a></span>(float&nbsp;x,
+       float&nbsp;width)</code>
+<div class="block">Return the left-most point of a region with the given width where x is a point inside that region determined by this anchor.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>float</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../easel/ui/AnchorPosition.html#getXFromLeft-float-float-">getXFromLeft</a></span>(float&nbsp;left,
             float&nbsp;width)</code>
 <div class="block">Computes an x value adjusted by this anchor, given a leftmost point and the width of the area.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>float</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../easel/ui/AnchorPosition.html#getXFromRight-float-float-">getXFromRight</a></span>(float&nbsp;right,
              float&nbsp;width)</code>
 <div class="block">Similar to <a href="../../easel/ui/AnchorPosition.html#getXFromLeft-float-float-"><code>getXFromLeft(float, float)</code></a>, except the range is inside <code>[right - width, right]</code>.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>float</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../easel/ui/AnchorPosition.html#getYFromBottom-float-float-">getYFromBottom</a></span>(float&nbsp;bottom,
               float&nbsp;height)</code>
 <div class="block">Computes a y value adjusted by this anchor, given a bottom point and the height of the area.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>float</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../easel/ui/AnchorPosition.html#getYFromTop-float-float-">getYFromTop</a></span>(float&nbsp;top,
            float&nbsp;height)</code>
 <div class="block">Similar to <a href="../../easel/ui/AnchorPosition.html#getYFromBottom-float-float-"><code>getYFromBottom(float, float)</code></a>, except the range is inside <code>[top - height, top]</code>.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../easel/ui/AnchorPosition.html#isBottom--">isBottom</a></span>()</code>
 <div class="block">Returns true if the anchor is vertically bottom.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../easel/ui/AnchorPosition.html#isCenterX--">isCenterX</a></span>()</code>
 <div class="block">Returns true if the anchor is horizontally centered.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../easel/ui/AnchorPosition.html#isCenterY--">isCenterY</a></span>()</code>
 <div class="block">Returns true if the anchor is vertically centered.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../easel/ui/AnchorPosition.html#isLeft--">isLeft</a></span>()</code>
 <div class="block">Returns true if the anchor is horizontally left.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../easel/ui/AnchorPosition.html#isRight--">isRight</a></span>()</code>
 <div class="block">Returns true if the anchor is horizontally right.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../easel/ui/AnchorPosition.html#isTop--">isTop</a></span>()</code>
 <div class="block">Returns true if the anchor is vertically top.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code><a href="../../easel/ui/AnchorPosition.html" title="enum in easel.ui">AnchorPosition</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../easel/ui/AnchorPosition.html#next--">next</a></span>()</code>
 <div class="block">DEBUG.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>static <a href="../../easel/ui/AnchorPosition.html" title="enum in easel.ui">AnchorPosition</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../easel/ui/AnchorPosition.html#randomAnchor--">randomAnchor</a></span>()</code>
 <div class="block">DEBUG.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>static <a href="../../easel/ui/AnchorPosition.html" title="enum in easel.ui">AnchorPosition</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../easel/ui/AnchorPosition.html#randomAnchor-easel.ui.AnchorPosition-">randomAnchor</a></span>(<a href="../../easel/ui/AnchorPosition.html" title="enum in easel.ui">AnchorPosition</a>&nbsp;previous)</code>
 <div class="block">DEBUG.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>static <a href="../../easel/ui/AnchorPosition.html" title="enum in easel.ui">AnchorPosition</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../easel/ui/AnchorPosition.html#valueOf-java.lang.String-">valueOf</a></span>(java.lang.String&nbsp;name)</code>
 <div class="block">Returns the enum constant of this type with the specified name.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>static <a href="../../easel/ui/AnchorPosition.html" title="enum in easel.ui">AnchorPosition</a>[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../easel/ui/AnchorPosition.html#values--">values</a></span>()</code>
 <div class="block">Returns an array containing the constants of this enum type, in
@@ -597,6 +631,94 @@ not permitted.)</div>
 <dd>a y coordinate contained inside the region <code>[top - height, top]</code> with the vertical position determined by this anchor</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../easel/ui/AnchorPosition.html#getYFromBottom-float-float-"><code>getYFromBottom(float, float)</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="getLeft-float-float-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getLeft</h4>
+<pre>public&nbsp;float&nbsp;getLeft(float&nbsp;x,
+                     float&nbsp;width)</pre>
+<div class="block">Return the left-most point of a region with the given width where x is a point inside that region determined by this anchor. Implementation wise, this is: returns x if this anchor is left, x minus half the width if this anchor is centered, or x minus the full width if this anchor is on the right. If this doesn't make sense, you can ignore this function as it is just convenience for internal use (and it's surprisingly difficult to describe concisely).</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>x</code> - a point placed inside the region according to this anchor</dd>
+<dd><code>width</code> - the width of the region</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the left-most point of the region</dd>
+</dl>
+</li>
+</ul>
+<a name="getBottom-float-float-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getBottom</h4>
+<pre>public&nbsp;float&nbsp;getBottom(float&nbsp;y,
+                       float&nbsp;height)</pre>
+<div class="block">Return the bottom-most point of a region with the given height where y is a point inside that region determined by this anchor. Implementation wise, this is: returns y if this anchor is bottom, y minus half the height if this anchor is centered, or y minus the full height if this anchor is on the top. If this doesn't make sense, you can ignore this function as it is just convenience for internal use (and it's surprisingly difficult to describe concisely).</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>y</code> - a point placed inside the region according to this anchor</dd>
+<dd><code>height</code> - the height of the region</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the bottom-most point of the region</dd>
+</dl>
+</li>
+</ul>
+<a name="deltaX-float-easel.ui.AnchorPosition-float-easel.ui.AnchorPosition-float-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>deltaX</h4>
+<pre>public static&nbsp;float&nbsp;deltaX(float&nbsp;startX,
+                           <a href="../../easel/ui/AnchorPosition.html" title="enum in easel.ui">AnchorPosition</a>&nbsp;startAnchor,
+                           float&nbsp;newX,
+                           <a href="../../easel/ui/AnchorPosition.html" title="enum in easel.ui">AnchorPosition</a>&nbsp;newAnchor,
+                           float&nbsp;width)</pre>
+<div class="block">Determines how much the coordinates move horizontally from a starting point to the ending point. This function allows computations to occur when the two x values are not the same anchor (if they were, you'd just be able to do <code>newX - startX</code>). This lets you quickly find the horizontal delta between ALL points in the region, given any anchored point in the original position compared to any anchored point in the new position. This assumes the width of the region stays constant, and the move is a strict translation.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>startX</code> - a point placed inside the starting region with its local position determined by startAnchor</dd>
+<dd><code>startAnchor</code> - the position of startX inside the starting region (is it on the left side of the region, the center, or the right)</dd>
+<dd><code>newX</code> - a point placed inside the ending region with its local position determined by newAnchor</dd>
+<dd><code>newAnchor</code> - the position of newX inside the ending region (is it on the left side of the region, the center, or the right)</dd>
+<dd><code>width</code> - the width of the region being translated (assumed constant)</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the horizontal delta between any same anchor position points in the region (e.g. how much the LEFT_BOTTOM point moves horizontally to become the new LEFT_BOTTOM, or the CENTER_TOP moves to become the new CENTER_TOP, etc.)</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../easel/ui/AnchorPosition.html#deltaY-float-easel.ui.AnchorPosition-float-easel.ui.AnchorPosition-float-"><code>deltaY(float, AnchorPosition, float, AnchorPosition, float)</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="deltaY-float-easel.ui.AnchorPosition-float-easel.ui.AnchorPosition-float-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>deltaY</h4>
+<pre>public static&nbsp;float&nbsp;deltaY(float&nbsp;startY,
+                           <a href="../../easel/ui/AnchorPosition.html" title="enum in easel.ui">AnchorPosition</a>&nbsp;startAnchor,
+                           float&nbsp;newY,
+                           <a href="../../easel/ui/AnchorPosition.html" title="enum in easel.ui">AnchorPosition</a>&nbsp;newAnchor,
+                           float&nbsp;height)</pre>
+<div class="block">Determines how much the coordinates move vertically from a starting point to the ending point. This function allows computations to occur when the two y values are not the same anchor (if they were, you'd just be able to do <code>newY - startY</code>). This lets you quickly find the vertical delta between ALL points in the region, given any anchored point in the original position compared to any anchored point in the new position. This assumes the height of the region stays constant, and the move is a strict translation.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>startY</code> - a point placed inside the starting region with its local position determined by startAnchor</dd>
+<dd><code>startAnchor</code> - the position of startY inside the starting region (is it on the bottom of the region, the center, or the top)</dd>
+<dd><code>newY</code> - a point placed inside the ending region with its local position determined by newAnchor</dd>
+<dd><code>newAnchor</code> - the position of newY inside the ending region (is it on the bottom of the region, the center, or the top)</dd>
+<dd><code>height</code> - the height of the region being translated (assumed constant)</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the vertical delta between any same anchor position points in the region (e.g. how much the LEFT_BOTTOM point moves vertically to become the new LEFT_BOTTOM, or the CENTER_TOP moves to become the new CENTER_TOP, etc.)</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../easel/ui/AnchorPosition.html#deltaX-float-easel.ui.AnchorPosition-float-easel.ui.AnchorPosition-float-"><code>deltaX(float, AnchorPosition, float, AnchorPosition, float)</code></a></dd>
 </dl>
 </li>
 </ul>

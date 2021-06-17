@@ -109,6 +109,7 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public class <span class="typeNameLabel">BitmapFontBuilder</span>
 extends java.lang.Object</pre>
+<div class="block">A builder for making font creation a bit more convenient. The default settings attempt to mimic the <code>tipBodyFont</code> from the base game, and you can alter individual pieces of it without needing to worry about changing the entire thing. Fonts should be built in a post-initialize hook from BaseMod and then stored statically somewhere for access. Easel comes built with a few custom fonts already, e.g. <a href="../../easel/utils/EaselFonts.html#SMALLER_TIP_BODY"><code>EaselFonts.SMALLER_TIP_BODY</code></a>, whose constructions use this builder if you're looking for examples of use.</div>
 </li>
 </ul>
 </div>
@@ -290,10 +291,10 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>withLinearFiltering</h4>
 <pre>public&nbsp;<a href="../../easel/utils/BitmapFontBuilder.html" title="class in easel.utils">BitmapFontBuilder</a>&nbsp;withLinearFiltering(boolean&nbsp;linearFiltering)</pre>
-<div class="block">Use for large font sizes. Base game seems like it uses linear filtering for fonts of size 30 and above, so it's probably a good idea to copy that practice.</div>
+<div class="block">Use for large font sizes. Base game seems like it uses linear filtering for fonts of size 30 and above, so it's probably a good idea to copy that practice. To be completely honest, I don't know what this does but you can try and change it and report back your results if you understand it.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>linearFiltering</code> - </dd>
+<dd><code>linearFiltering</code> - whether to use linear filtering</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>this builder</dd>
 </dl>
